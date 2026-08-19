@@ -52,6 +52,9 @@ local function checkRate(player: Player, key: string, capacity: number, perSec: 
 	end
 	local b = buckets[key]
 	local now = os.clock()
+	if b and now - b.last > 30 then
+		b = nil
+	end
 	if not b then
 		b = { tokens = capacity, last = now }
 		buckets[key] = b
@@ -409,6 +412,7 @@ local playerProfiles: { [number]: any } = {}
 local practiceRangePlayers: { [number]: boolean } = {}
 
 local function onPlayerAdded(player: Player)
+	_rateBuckets[player.UserId] = nil
 	DirectChallengeService.SetPlayerStatus(player, "In Lobby")
 
 	task.spawn(function()
@@ -507,9 +511,7 @@ local function spawnPlayerInPracticeRange(player: Player): boolean
 	if DirectChallengeService then
 		DirectChallengeService.SetPlayerStatus(player, "Practice Range")
 	end
-	if combatServerInstance and combatServerInstance.SetMatchPhase then
-		combatServerInstance:SetMatchPhase("PracticeRange")
-	end
+
 	if combatServerInstance then
 		combatServerInstance:RegisterPlayer(player.UserId)
 	end

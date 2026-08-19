@@ -8,6 +8,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 export type MapBounds = {
 	min: Vector3,
@@ -112,6 +113,9 @@ local function createPart(
 	part.TopSurface = Enum.SurfaceType.Smooth
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -431,8 +435,8 @@ function CyberArenaMap.BuildMap(parent: Instance?): Folder
 	createNeonBarrier("NeonBarrier_East_1", Vector3.new(8, 7, 2), CFrame.new(48, 3.5, 20), neonCyan, envFolder)
 
 	-- Translucent Glass Sightline Walls
-	createGlassWall("GlassWall_MidWest", Vector3.new(1, 10, 24), CFrame.new(-24, 5, 0), envFolder)
-	createGlassWall("GlassWall_MidEast", Vector3.new(1, 10, 24), CFrame.new(24, 5, 0), envFolder)
+	createGlassWall("GlassWall_MidWest", Vector3.new(1, 7.0, 24), CFrame.new(-24, 3.5, 0), envFolder)
+	createGlassWall("GlassWall_MidEast", Vector3.new(1, 7.0, 24), CFrame.new(24, 3.5, 0), envFolder)
 
 	-- Multi-level Metallic Platforms with Energy Ramps
 	buildMultiLevelPlatform("Platform_NorthWest", Vector3.new(-42, 0, -72), Vector3.new(16, 1.2, 16), 14, envFolder)
@@ -440,8 +444,8 @@ function CyberArenaMap.BuildMap(parent: Instance?): Folder
 
 	-- Metallic Sci-Fi Pillars
 	local pillarColor = Color3.fromRGB(50, 55, 65)
-	createPart("SciFiPillar_Mid_L", Vector3.new(5, 18, 5), CFrame.new(-16, 9, 0), pillarColor, Enum.Material.Metal, envFolder)
-	createPart("SciFiPillar_Mid_R", Vector3.new(5, 18, 5), CFrame.new(16, 9, 0), pillarColor, Enum.Material.Metal, envFolder)
+	createPart("SciFiPillar_Mid_L", Vector3.new(5, 7.0, 5), CFrame.new(-16, 3.5, 0), pillarColor, Enum.Material.Metal, envFolder)
+	createPart("SciFiPillar_Mid_R", Vector3.new(5, 7.0, 5), CFrame.new(16, 3.5, 0), pillarColor, Enum.Material.Metal, envFolder)
 
 	-- 4. Objective Sites Folder (Holographic Pads)
 	local sitesFolder = Instance.new("Folder")
@@ -480,14 +484,14 @@ function CyberArenaMap.BuildMap(parent: Instance?): Folder
 	local metalCoverColor = Color3.fromRGB(60, 65, 75)
 
 	-- Site A Covers
-	createPart("HoloCover_SiteA_1", Vector3.new(6, 6, 6), CFrame.new(-48, 3, -38), metalCoverColor, Enum.Material.SmoothPlastic, coverFolder)
-	createPart("HoloCover_SiteA_2", Vector3.new(5, 4, 5), CFrame.new(-58, 2, -28), metalCoverColor, Enum.Material.Metal, coverFolder)
-	createPart("HoloCover_SiteA_3", Vector3.new(5, 4, 5), CFrame.new(-38, 2, -48), metalCoverColor, Enum.Material.Metal, coverFolder)
+	createPart("HoloCover_SiteA_1", Vector3.new(6, 7.0, 6), CFrame.new(-48, 3.5, -38), metalCoverColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("HoloCover_SiteA_2", Vector3.new(5, 3.5, 5), CFrame.new(-58, 1.75, -28), metalCoverColor, Enum.Material.Metal, coverFolder)
+	createPart("HoloCover_SiteA_3", Vector3.new(5, 3.5, 5), CFrame.new(-38, 1.75, -48), metalCoverColor, Enum.Material.Metal, coverFolder)
 
 	-- Site B Covers
-	createPart("HoloCover_SiteB_1", Vector3.new(6, 6, 6), CFrame.new(48, 3, 38), metalCoverColor, Enum.Material.SmoothPlastic, coverFolder)
-	createPart("HoloCover_SiteB_2", Vector3.new(5, 4, 5), CFrame.new(58, 2, 28), metalCoverColor, Enum.Material.Metal, coverFolder)
-	createPart("HoloCover_SiteB_3", Vector3.new(5, 4, 5), CFrame.new(38, 2, 48), metalCoverColor, Enum.Material.Metal, coverFolder)
+	createPart("HoloCover_SiteB_1", Vector3.new(6, 7.0, 6), CFrame.new(48, 3.5, 38), metalCoverColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("HoloCover_SiteB_2", Vector3.new(5, 3.5, 5), CFrame.new(58, 1.75, 28), metalCoverColor, Enum.Material.Metal, coverFolder)
+	createPart("HoloCover_SiteB_3", Vector3.new(5, 3.5, 5), CFrame.new(38, 1.75, 48), metalCoverColor, Enum.Material.Metal, coverFolder)
 
 	-- Mid Shields
 	createPart("MidShield_North", Vector3.new(8, 4, 3), CFrame.new(0, 2, -20), neonCyan, Enum.Material.Neon, coverFolder)

@@ -8,6 +8,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 export type MapBounds = {
 	min: Vector3,
@@ -112,6 +113,9 @@ local function createPart(
 	part.TopSurface = Enum.SurfaceType.Smooth
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -402,18 +406,18 @@ function ClassicGreyboxMap.BuildMap(parent: Instance?): Folder
 	local blockColor = Color3.fromRGB(130, 135, 140)
 
 	-- Site A Cover Blocks
-	createPart("HighCover_SiteA", Vector3.new(6, 8, 6), CFrame.new(-50, 4, -40), blockColor, Enum.Material.Concrete, coverFolder)
-	createPart("LowCover_SiteA_1", Vector3.new(4, 4, 4), CFrame.new(-60, 2, -30), blockColor, Enum.Material.SmoothPlastic, coverFolder)
-	createPart("LowCover_SiteA_2", Vector3.new(4, 4, 4), CFrame.new(-40, 2, -50), blockColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("HighCover_SiteA", Vector3.new(6, 7.0, 6), CFrame.new(-50, 3.5, -40), blockColor, Enum.Material.Concrete, coverFolder)
+	createPart("LowCover_SiteA_1", Vector3.new(4, 3.5, 4), CFrame.new(-60, 1.75, -30), blockColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("LowCover_SiteA_2", Vector3.new(4, 3.5, 4), CFrame.new(-40, 1.75, -50), blockColor, Enum.Material.SmoothPlastic, coverFolder)
 
 	-- Site B Cover Blocks
-	createPart("HighCover_SiteB", Vector3.new(6, 10, 6), CFrame.new(50, 5, 40), blockColor, Enum.Material.Concrete, coverFolder)
-	createPart("LowCover_SiteB_1", Vector3.new(4, 4, 4), CFrame.new(60, 2, 30), blockColor, Enum.Material.SmoothPlastic, coverFolder)
-	createPart("LowCover_SiteB_2", Vector3.new(4, 4, 4), CFrame.new(40, 2, 50), blockColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("HighCover_SiteB", Vector3.new(6, 7.0, 6), CFrame.new(50, 3.5, 40), blockColor, Enum.Material.Concrete, coverFolder)
+	createPart("LowCover_SiteB_1", Vector3.new(4, 3.5, 4), CFrame.new(60, 1.75, 30), blockColor, Enum.Material.SmoothPlastic, coverFolder)
+	createPart("LowCover_SiteB_2", Vector3.new(4, 3.5, 4), CFrame.new(40, 1.75, 50), blockColor, Enum.Material.SmoothPlastic, coverFolder)
 
 	-- Mid Lane Covers & Chokepoint Pillars
-	createPart("Pillar_Mid_Left", Vector3.new(6, 12, 6), CFrame.new(-15, 6, 0), blockColor, Enum.Material.Concrete, coverFolder)
-	createPart("Pillar_Mid_Right", Vector3.new(6, 12, 6), CFrame.new(15, 6, 0), blockColor, Enum.Material.Concrete, coverFolder)
+	createPart("Pillar_Mid_Left", Vector3.new(6, 7.0, 6), CFrame.new(-15, 3.5, 0), blockColor, Enum.Material.Concrete, coverFolder)
+	createPart("Pillar_Mid_Right", Vector3.new(6, 7.0, 6), CFrame.new(15, 3.5, 0), blockColor, Enum.Material.Concrete, coverFolder)
 	createPart("LowCover_Mid_1", Vector3.new(6, 3.5, 4), CFrame.new(0, 1.75, -20), blockColor, Enum.Material.SmoothPlastic, coverFolder)
 	createPart("LowCover_Mid_2", Vector3.new(6, 3.5, 4), CFrame.new(0, 1.75, 20), blockColor, Enum.Material.SmoothPlastic, coverFolder)
 

@@ -8,6 +8,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 export type MapBounds = {
 	min: Vector3,
@@ -113,6 +114,9 @@ local function createPart(
 	part.TopSurface = Enum.SurfaceType.Smooth
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -507,7 +511,7 @@ function ForestOutpostMap.BuildMap(parent: Instance?): Folder
 	for idx, bPos in bushPositions do
 		createPart(
 			"FoliageBush_" .. idx,
-			Vector3.new(5, 4, 5),
+			Vector3.new(5, 3.5, 5),
 			CFrame.new(bPos),
 			Color3.fromRGB(45, 115, 40),
 			Enum.Material.Leaves,

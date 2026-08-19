@@ -142,6 +142,12 @@ local function ensureHeartbeat()
 
 		for index = #active, 1, -1 do
 			local p = active[index]
+			local ownerChar = p.owner and p.owner.Character
+			if ownerChar and not table.find(p.params.FilterDescendantsInstances, ownerChar) then
+				local existing = p.params.FilterDescendantsInstances
+				table.insert(existing, ownerChar)
+				p.params.FilterDescendantsInstances = existing
+			end
 			local nextVelocity = p.velocity + gravity * p.gravityScale * dt
 			local nextPosition = p.position + nextVelocity * dt
 			local dir = nextPosition - p.position
