@@ -14,6 +14,7 @@
 --]]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 local NeonSubwayMap = {}
 
@@ -44,16 +45,16 @@ local COLORS = {
 -- Red faces east (+X); Blue faces west (-X). Positions are authored before MAP_OFFSET.
 local SPAWNS: SpawnSet = {
 	Red = {
-		CFrame.new(-59, SPAWN_Y, -9) * CFrame.Angles(0, math.rad(-90), 0),
-		CFrame.new(-59, SPAWN_Y, 9) * CFrame.Angles(0, math.rad(-90), 0),
-		CFrame.new(-63, SPAWN_Y, -5) * CFrame.Angles(0, math.rad(-90), 0),
-		CFrame.new(-63, SPAWN_Y, 5) * CFrame.Angles(0, math.rad(-90), 0),
+		CFrame.new(-61, SPAWN_Y, -9) * CFrame.Angles(0, math.rad(-90), 0),
+		CFrame.new(-61, SPAWN_Y, 9) * CFrame.Angles(0, math.rad(-90), 0),
+		CFrame.new(-65, SPAWN_Y, -5) * CFrame.Angles(0, math.rad(-90), 0),
+		CFrame.new(-65, SPAWN_Y, 5) * CFrame.Angles(0, math.rad(-90), 0),
 	},
 	Blue = {
-		CFrame.new(59, SPAWN_Y, 9) * CFrame.Angles(0, math.rad(90), 0),
-		CFrame.new(59, SPAWN_Y, -9) * CFrame.Angles(0, math.rad(90), 0),
-		CFrame.new(63, SPAWN_Y, 5) * CFrame.Angles(0, math.rad(90), 0),
-		CFrame.new(63, SPAWN_Y, -5) * CFrame.Angles(0, math.rad(90), 0),
+		CFrame.new(61, SPAWN_Y, 9) * CFrame.Angles(0, math.rad(90), 0),
+		CFrame.new(61, SPAWN_Y, -9) * CFrame.Angles(0, math.rad(90), 0),
+		CFrame.new(65, SPAWN_Y, 5) * CFrame.Angles(0, math.rad(90), 0),
+		CFrame.new(65, SPAWN_Y, -5) * CFrame.Angles(0, math.rad(90), 0),
 	},
 }
 
@@ -91,6 +92,9 @@ local function makePart(
 	part.CanQuery = if queryable == nil then true else queryable
 	part.CanTouch = false
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -150,7 +154,7 @@ end
 
 local function addCrateStack(parent: Instance, namePrefix: string, localPosition: Vector3, mirrored: boolean)
 	local xNudge = if mirrored then -1.4 else 1.4
-	makePart(parent, namePrefix .. "Base", Vector3.new(5, 4, 5), localPosition, COLORS.Steel, Enum.Material.Metal)
+	makePart(parent, namePrefix .. "Base", Vector3.new(5, 3.5, 5), localPosition, COLORS.Steel, Enum.Material.Metal)
 	makePart(
 		parent,
 		namePrefix .. "Top",
@@ -175,8 +179,8 @@ local function addSide(parent: Instance, team: TeamName)
 	makePart(geometryFolder, team .. "SpawnNorthWall", Vector3.new(12, 8, 2), Vector3.new(baseX, 4, -17), COLORS.Concrete, Enum.Material.Concrete)
 	makePart(geometryFolder, team .. "SpawnSouthWall", Vector3.new(12, 8, 2), Vector3.new(baseX, 4, 17), COLORS.Concrete, Enum.Material.Concrete)
 	makePart(coverFolder, team .. "SpawnSightBlocker", Vector3.new(4, 7, 20), Vector3.new(48 * sign, 3.5, 0), COLORS.SteelDark, Enum.Material.Metal)
-	makePart(coverFolder, team .. "NorthExitCover", Vector3.new(7, 5, 3), Vector3.new(45 * sign, 2.5, -15), COLORS.Steel, Enum.Material.DiamondPlate)
-	makePart(coverFolder, team .. "SouthExitCover", Vector3.new(7, 5, 3), Vector3.new(45 * sign, 2.5, 15), COLORS.Steel, Enum.Material.DiamondPlate)
+	makePart(coverFolder, team .. "NorthExitCover", Vector3.new(7, 5.0, 3), Vector3.new(45 * sign, 2.5, -15), COLORS.Steel, Enum.Material.DiamondPlate)
+	makePart(coverFolder, team .. "SouthExitCover", Vector3.new(7, 5.0, 3), Vector3.new(45 * sign, 2.5, 15), COLORS.Steel, Enum.Material.DiamondPlate)
 	makeNeonStrip(decorationFolder, team .. "SpawnColorStrip", Vector3.new(0.25, 0.7, 24), Vector3.new(70 * sign, 8, 0), teamColor)
 	makeNeonStrip(decorationFolder, team .. "ExitGuidance", Vector3.new(15, 0.15, 0.35), Vector3.new(53 * sign, 1.15, 0), teamColor)
 
@@ -264,10 +268,10 @@ function NeonSubwayMap.BuildMap(parent: Instance?): Folder
 	objectivePad:SetAttribute("ObjectiveId", "CentralNode")
 	makeNeonStrip(decoration, "ObjectiveRingNorth", Vector3.new(8, 0.25, 0.3), Vector3.new(0, 2.1, -4.2), COLORS.NeonBlue)
 	makeNeonStrip(decoration, "ObjectiveRingSouth", Vector3.new(8, 0.25, 0.3), Vector3.new(0, 2.1, 4.2), COLORS.NeonBlue)
-	makePart(cover, "CenterCoverNorthWest", Vector3.new(6, 4, 3), Vector3.new(-9, 2, -7), COLORS.Steel, Enum.Material.Metal)
-	makePart(cover, "CenterCoverNorthEast", Vector3.new(6, 4, 3), Vector3.new(9, 2, -7), COLORS.Steel, Enum.Material.Metal)
-	makePart(cover, "CenterCoverSouthWest", Vector3.new(6, 4, 3), Vector3.new(-9, 2, 7), COLORS.Steel, Enum.Material.Metal)
-	makePart(cover, "CenterCoverSouthEast", Vector3.new(6, 4, 3), Vector3.new(9, 2, 7), COLORS.Steel, Enum.Material.Metal)
+	makePart(cover, "CenterCoverNorthWest", Vector3.new(6, 3.5, 3), Vector3.new(-9, 2, -7), COLORS.Steel, Enum.Material.Metal)
+	makePart(cover, "CenterCoverNorthEast", Vector3.new(6, 3.5, 3), Vector3.new(9, 2, -7), COLORS.Steel, Enum.Material.Metal)
+	makePart(cover, "CenterCoverSouthWest", Vector3.new(6, 3.5, 3), Vector3.new(-9, 2, 7), COLORS.Steel, Enum.Material.Metal)
+	makePart(cover, "CenterCoverSouthEast", Vector3.new(6, 3.5, 3), Vector3.new(9, 2, 7), COLORS.Steel, Enum.Material.Metal)
 
 	-- North: medium-range concourse. Angled freight cover prevents an uninterrupted sniper lane.
 	for _, spec in ipairs({

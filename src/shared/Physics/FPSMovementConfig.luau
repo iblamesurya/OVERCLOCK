@@ -40,6 +40,7 @@ FPSMovementConfig.GroundProbeOriginLift = 1.2
 FPSMovementConfig.JumpSpeed = 52.0
 FPSMovementConfig.JumpBufferSeconds = 0.12
 FPSMovementConfig.CoyoteSeconds = 0.10
+FPSMovementConfig.MantleCooldown = 0.6
 FPSMovementConfig.JumpCutMultiplier = 0.48
 FPSMovementConfig.JumpCooldownSeconds = 0.10
 

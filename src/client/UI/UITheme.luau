@@ -4,17 +4,26 @@ local TweenService = game:GetService("TweenService")
 local UITheme = {}
 
 UITheme.Colors = {
-	Background = Color3.fromRGB(18, 19, 21),
-	Panel = Color3.fromRGB(30, 31, 33),
-	PanelLight = Color3.fromRGB(42, 43, 46),
-	Accent = Color3.fromRGB(197, 165, 62), -- warm brass, not purple/indigo
-	AccentDark = Color3.fromRGB(140, 118, 44),
-	Danger = Color3.fromRGB(186, 42, 42),
-	Success = Color3.fromRGB(58, 150, 72),
-	TextPrimary = Color3.fromRGB(240, 240, 238),
-	TextSecondary = Color3.fromRGB(155, 157, 160), -- not gray-400, proper contrast + hierarchy
-	Border = Color3.fromRGB(48, 49, 52),
-	Gold = Color3.fromRGB(197, 165, 62),
+    Background = Color3.fromRGB(13, 15, 18),
+    Panel = Color3.fromRGB(26, 29, 36),
+    PanelLight = Color3.fromRGB(38, 42, 52),
+    PanelHover = Color3.fromRGB(48, 54, 68),
+    Accent = Color3.fromRGB(0, 229, 255),
+    AccentDark = Color3.fromRGB(0, 160, 180),
+    AccentGold = Color3.fromRGB(255, 190, 70),
+    Danger = Color3.fromRGB(255, 51, 102),
+    DangerDark = Color3.fromRGB(180, 35, 70),
+    Success = Color3.fromRGB(0, 230, 118),
+    Warning = Color3.fromRGB(255, 179, 0),
+    TextPrimary = Color3.fromRGB(240, 242, 245),
+    TextSecondary = Color3.fromRGB(140, 148, 165),
+    TextDim = Color3.fromRGB(85, 92, 108),
+    Border = Color3.fromRGB(55, 62, 78),
+    BorderGlow = Color3.fromRGB(0, 180, 220),
+    Red = Color3.fromRGB(255, 68, 68),
+    Blue = Color3.fromRGB(68, 140, 255),
+    Headshot = Color3.fromRGB(255, 215, 0),
+    Kill = Color3.fromRGB(255, 51, 102),
 }
 
 UITheme.Font = Enum.Font.GothamBold
@@ -104,6 +113,15 @@ function UITheme.createAccentButton(parent: Instance, text: string, size: UDim2,
 	b.BackgroundColor3 = UITheme.Colors.Accent
 	b.TextColor3 = UITheme.Colors.Background
 	return b
+end
+
+function UITheme.createGlowStroke(inst: GuiObject, color: Color3?, thickness: number?): UIStroke
+    local s = Instance.new("UIStroke")
+    s.Color = color or UITheme.Colors.BorderGlow
+    s.Thickness = thickness or 1.5
+    s.Transparency = 0.6
+    s.Parent = inst
+    return s
 end
 
 return UITheme

@@ -238,6 +238,10 @@ local function createPatrolBotModel(botId: number, spawnPos: Vector3): (Model, H
 	model:SetAttribute("IsPatrolBot", true)
 	model:SetAttribute("BotId", botId)
 
+	local diffs = {"Easy", "Medium", "Hard"}
+	local chosenDiff = diffs[math.random(1, 3)]
+	model:SetAttribute("BotDifficulty", chosenDiff)
+
 	local rootPart = Instance.new("Part")
 	rootPart.Name = "HumanoidRootPart"
 	rootPart.Size = Vector3.new(2, 2, 1)

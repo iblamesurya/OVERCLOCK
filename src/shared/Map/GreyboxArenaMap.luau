@@ -7,6 +7,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 local GreyboxArenaMap = {}
 
@@ -106,6 +107,9 @@ local function createPart(
 	part.TopSurface = Enum.SurfaceType.Smooth
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -303,24 +307,24 @@ function GreyboxArenaMap.BuildMap(parent: Instance?): Folder
 	-- Site A Covers
 	createPart(
 		"HighCover_SiteA",
-		Vector3.new(6, 8, 6),
-		CFrame.new(Vector3.new(-50, 4, -40)),
+		Vector3.new(6, 7.0, 6),
+		CFrame.new(Vector3.new(-50, 3.5, -40)),
 		Color3.fromRGB(140, 145, 150),
 		Enum.Material.Concrete,
 		coverFolder
 	)
 	createPart(
 		"LowCover_SiteA_1",
-		Vector3.new(4, 4, 4),
-		CFrame.new(Vector3.new(-60, 2, -30)),
+		Vector3.new(4, 3.5, 4),
+		CFrame.new(Vector3.new(-60, 1.75, -30)),
 		Color3.fromRGB(120, 125, 130),
 		Enum.Material.SmoothPlastic,
 		coverFolder
 	)
 	createPart(
 		"LowCover_SiteA_2",
-		Vector3.new(4, 4, 4),
-		CFrame.new(Vector3.new(-40, 2, -50)),
+		Vector3.new(4, 3.5, 4),
+		CFrame.new(Vector3.new(-40, 1.75, -50)),
 		Color3.fromRGB(120, 125, 130),
 		Enum.Material.SmoothPlastic,
 		coverFolder
@@ -329,24 +333,24 @@ function GreyboxArenaMap.BuildMap(parent: Instance?): Folder
 	-- Site B Covers
 	createPart(
 		"HighCover_SiteB",
-		Vector3.new(6, 10, 6),
-		CFrame.new(Vector3.new(50, 5, 40)),
+		Vector3.new(6, 7.0, 6),
+		CFrame.new(Vector3.new(50, 3.5, 40)),
 		Color3.fromRGB(140, 145, 150),
 		Enum.Material.Concrete,
 		coverFolder
 	)
 	createPart(
 		"LowCover_SiteB_1",
-		Vector3.new(4, 4, 4),
-		CFrame.new(Vector3.new(60, 2, 30)),
+		Vector3.new(4, 3.5, 4),
+		CFrame.new(Vector3.new(60, 1.75, 30)),
 		Color3.fromRGB(120, 125, 130),
 		Enum.Material.SmoothPlastic,
 		coverFolder
 	)
 	createPart(
 		"LowCover_SiteB_2",
-		Vector3.new(4, 4, 4),
-		CFrame.new(Vector3.new(40, 2, 50)),
+		Vector3.new(4, 3.5, 4),
+		CFrame.new(Vector3.new(40, 1.75, 50)),
 		Color3.fromRGB(120, 125, 130),
 		Enum.Material.SmoothPlastic,
 		coverFolder
@@ -355,16 +359,16 @@ function GreyboxArenaMap.BuildMap(parent: Instance?): Folder
 	-- Mid Lane Covers & Chokepoint Pillars
 	createPart(
 		"Pillar_Mid_Left",
-		Vector3.new(6, 12, 6),
-		CFrame.new(Vector3.new(-15, 6, 0)),
+		Vector3.new(6, 7.0, 6),
+		CFrame.new(Vector3.new(-15, 3.5, 0)),
 		Color3.fromRGB(160, 165, 170),
 		Enum.Material.Concrete,
 		coverFolder
 	)
 	createPart(
 		"Pillar_Mid_Right",
-		Vector3.new(6, 12, 6),
-		CFrame.new(Vector3.new(15, 6, 0)),
+		Vector3.new(6, 7.0, 6),
+		CFrame.new(Vector3.new(15, 3.5, 0)),
 		Color3.fromRGB(160, 165, 170),
 		Enum.Material.Concrete,
 		coverFolder

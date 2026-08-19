@@ -42,6 +42,7 @@ local accumulator = 0.0
 local intentElapsed = math.huge
 local intentSequence = 0
 local lastIntentSignature = ""
+local lastMantleTime = 0
 local baseHipHeight: number? = nil
 local baseCameraOffset = Vector3.zero
 local raycastParams = RaycastParams.new()
@@ -224,6 +225,37 @@ local function fixedUpdate(): boolean
 		root.AssemblyLinearVelocity,
 		Workspace.Gravity
 	)
+
+	if result and result.movementState == "Air" and result.moveDirection.Magnitude > 0.1 then
+		local now = os.clock()
+		if now - lastMantleTime > Config.MantleCooldown then
+			local rootPos = root.Position
+			local moveDirection = result.moveDirection
+			local groundParams = RaycastParams.new()
+			groundParams.FilterDescendantsInstances = {character}
+			groundParams.FilterType = Enum.RaycastFilterType.Exclude
+
+			local wallRay = Workspace:Raycast(rootPos, moveDirection * 3, groundParams)
+			if wallRay then
+				local ledgeCheckOrigin = rootPos + Vector3.new(0, 5.5, 0)
+				local ledgeRay = Workspace:Raycast(ledgeCheckOrigin, moveDirection * 3, groundParams)
+				if not ledgeRay then
+					local mantleTarget = wallRay.Position + Vector3.new(0, 5.5, 0) + moveDirection * 2
+					root.CFrame = root.CFrame.Rotation + mantleTarget
+					lastMantleTime = now
+					localPlayer:SetAttribute("BlocksMovement", true)
+					task.delay(0.3, function()
+						if localPlayer:GetAttribute("BlocksMovement") then
+							localPlayer:SetAttribute("BlocksMovement", nil)
+						end
+					end)
+					local AnimationController = require(script.Parent.AnimationController)
+					AnimationController.AddRecoil(Vector3.new(0.05, 0, 0))
+				end
+			end
+		end
+	end
+
 	applyMovement(humanoid, root, result, Config.FixedStep)
 	updatePlayerAttributes(result)
 	-- ── FTUEAnalytics wiring: movement assists (coyote / buffer / slide) ──

@@ -241,6 +241,9 @@ function FPSMovementKernel.Step(
 		local slideExpired = now >= state.slideUntil or currentHorizontal.Magnitude < Config.MinSlideSpeed
 		if slideExpired then
 			state.movementState = if input.crouchHeld then "Crouch" else "Run"
+			if state.movementState == "Crouch" and state.horizontalVelocity.Magnitude > Config.CrouchSpeed then
+				state.horizontalVelocity = state.horizontalVelocity.Unit * Config.CrouchSpeed
+			end
 		else
 			outputState = "Slide"
 			isSliding = true

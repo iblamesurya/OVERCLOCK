@@ -14,6 +14,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 local TweenService = game:GetService("TweenService")
 
 local DuelArenaMap = {}
@@ -129,10 +130,10 @@ local COVER_DEFS: { CoverDef } = {
 	{ name = "MidCover_Right_Mid", pos = Vector3.new(38, 2.5, 0), size = Vector3.new(5, 5, 6), tier = "Mid", health = 220 },
 
 	-- Connector choke blocks
-	{ name = "Choke_NW", pos = Vector3.new(-18, 2, -28), size = Vector3.new(4, 4, 4), tier = "Mid", health = 200 },
-	{ name = "Choke_NE", pos = Vector3.new(18, 2, -28), size = Vector3.new(4, 4, 4), tier = "Mid", health = 200 },
-	{ name = "Choke_SW", pos = Vector3.new(-18, 2, 28), size = Vector3.new(4, 4, 4), tier = "Mid", health = 200 },
-	{ name = "Choke_SE", pos = Vector3.new(18, 2, 28), size = Vector3.new(4, 4, 4), tier = "Mid", health = 200 },
+	{ name = "Choke_NW", pos = Vector3.new(-18, 1.75, -28), size = Vector3.new(4, 3.5, 4), tier = "Mid", health = 200 },
+	{ name = "Choke_NE", pos = Vector3.new(18, 1.75, -28), size = Vector3.new(4, 3.5, 4), tier = "Mid", health = 200 },
+	{ name = "Choke_SW", pos = Vector3.new(-18, 1.75, 28), size = Vector3.new(4, 3.5, 4), tier = "Mid", health = 200 },
+	{ name = "Choke_SE", pos = Vector3.new(18, 1.75, 28), size = Vector3.new(4, 3.5, 4), tier = "Mid", health = 200 },
 }
 
 local COVER_POSITIONS: { Vector3 } = {}
@@ -165,6 +166,9 @@ local function createPart(
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.CastShadow = (transparency or 0) < 0.5
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 

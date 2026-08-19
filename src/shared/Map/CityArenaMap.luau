@@ -139,14 +139,14 @@ local BLUE_SPAWNS: { Vector3 } = {
 }
 
 local COVER_POSITIONS: { Vector3 } = {
-	MAP_OFFSET + Vector3.new(-50, 5, -40),
-	MAP_OFFSET + Vector3.new(-62, 2.5, -30),
-	MAP_OFFSET + Vector3.new(-38, 2.5, -50),
-	MAP_OFFSET + Vector3.new(50, 5, 40),
-	MAP_OFFSET + Vector3.new(62, 2.5, 30),
-	MAP_OFFSET + Vector3.new(38, 2.5, 50),
-	MAP_OFFSET + Vector3.new(-18, 6, 0),
-	MAP_OFFSET + Vector3.new(18, 6, 0),
+	MAP_OFFSET + Vector3.new(-50, 3.5, -40),
+	MAP_OFFSET + Vector3.new(-62, 1.75, -30),
+	MAP_OFFSET + Vector3.new(-38, 1.75, -50),
+	MAP_OFFSET + Vector3.new(50, 3.5, 40),
+	MAP_OFFSET + Vector3.new(62, 1.75, 30),
+	MAP_OFFSET + Vector3.new(38, 1.75, 50),
+	MAP_OFFSET + Vector3.new(-18, 3.5, 0),
+	MAP_OFFSET + Vector3.new(18, 3.5, 0),
 }
 
 function CityArenaMap.BuildMap(parent: Instance?): Folder
@@ -179,7 +179,10 @@ function CityArenaMap.BuildMap(parent: Instance?): Folder
 		p.BottomSurface = Enum.SurfaceType.Smooth
 		p.CollisionGroup = colGroup or "Map"
 		p.Parent = gen
-		return p
+		if p.Size.Y >= 3 and p.CollisionGroup == "Map" then
+		CollectionService:AddTag(p, "BulletBlocker")
+	end
+	return p
 	end
 
 	local floor = createPart("CityFloor", Vector3.new(240, 4, 260), CFrame.new(MAP_OFFSET + Vector3.new(0, -2, 0)), Color3.fromRGB(68, 72, 78), Enum.Material.Concrete, "Map")
@@ -197,14 +200,14 @@ function CityArenaMap.BuildMap(parent: Instance?): Folder
 
 	-- 8 invisible hard-cover blockers + vetted dressing (industrial city containers/barrels)
 	local hardCoverDefs = {
-		{ pos = MAP_OFFSET + Vector3.new(-50, 5, -40), size = Vector3.new(14, 10, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-62, 2.5, -30), size = Vector3.new(6, 5, 6), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-38, 2.5, -50), size = Vector3.new(6, 5, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(50, 5, 40), size = Vector3.new(14, 10, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(62, 2.5, 30), size = Vector3.new(6, 5, 6), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(38, 2.5, 50), size = Vector3.new(6, 5, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-18, 6, 0), size = Vector3.new(8, 12, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(18, 6, 0), size = Vector3.new(8, 12, 8), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, -40), size = Vector3.new(14, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-62, 1.75, -30), size = Vector3.new(6, 5.0, 6), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-38, 1.75, -50), size = Vector3.new(6, 5.0, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, 40), size = Vector3.new(14, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(62, 1.75, 30), size = Vector3.new(6, 5.0, 6), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(38, 1.75, 50), size = Vector3.new(6, 5.0, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-18, 3.5, 0), size = Vector3.new(8, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(18, 3.5, 0), size = Vector3.new(8, 7.0, 8), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
 	}
 	for i, def in hardCoverDefs do
 		local blocker = makeInvisibleBlocker("CoverBlocker_" .. i, def.size, CFrame.new(def.pos), gen)

@@ -71,6 +71,10 @@ function DynamicSpawnService.GetOptimalSpawn(candidateSpawns: {CFrame}, enemies:
                     -- Check Line of Sight from Enemy Head to Spawn Point
                     local targetPos = spawnPos + Vector3.new(0, 3, 0)
                     local dir = (targetPos - head.Position)
+                    local maxLOS = 500
+                    if dir.Magnitude > maxLOS then
+                        dir = dir.Unit * maxLOS
+                    end
                     local hit = Workspace:Raycast(head.Position, dir, raycastParams)
                     
                     -- If the ray hits nothing, it means there are no walls blocking the view

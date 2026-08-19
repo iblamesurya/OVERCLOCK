@@ -8,6 +8,7 @@
 ]=]
 
 local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 export type MapBounds = {
 	min: Vector3,
@@ -112,6 +113,9 @@ local function createPart(
 	part.TopSurface = Enum.SurfaceType.Smooth
 	part.BottomSurface = Enum.SurfaceType.Smooth
 	part.Parent = parent
+	if part.Size.Y >= 3 and part.CollisionGroup == "Map" then
+		CollectionService:AddTag(part, "BulletBlocker")
+	end
 	return part
 end
 
@@ -458,10 +462,10 @@ function DesertRuinsMap.BuildMap(parent: Instance?): Folder
 	buildAncientArch("Arch_EastEntry", Vector3.new(55, 0, 0), 18, 12, envFolder)
 
 	-- Crumbling Stone Walls
-	buildCrumblingWall("CrumblingWall_SiteA", Vector3.new(-65, 0, -35), 24, 7, 30, envFolder)
-	buildCrumblingWall("CrumblingWall_SiteB", Vector3.new(65, 0, 35), 24, 7, -30, envFolder)
-	buildCrumblingWall("CrumblingWall_MidWest", Vector3.new(-22, 0, 0), 20, 8, 90, envFolder)
-	buildCrumblingWall("CrumblingWall_MidEast", Vector3.new(22, 0, 0), 20, 8, -90, envFolder)
+	buildCrumblingWall("CrumblingWall_SiteA", Vector3.new(-65, 0, -35), 24, 7.0, 30, envFolder)
+	buildCrumblingWall("CrumblingWall_SiteB", Vector3.new(65, 0, 35), 24, 7.0, -30, envFolder)
+	buildCrumblingWall("CrumblingWall_MidWest", Vector3.new(-22, 0, 0), 20, 7.0, 90, envFolder)
+	buildCrumblingWall("CrumblingWall_MidEast", Vector3.new(22, 0, 0), 20, 7.0, -90, envFolder)
 
 	-- Sandstone Obelisk in Sunken Plaza Center
 	local obeliskColor = Color3.fromRGB(205, 165, 115)

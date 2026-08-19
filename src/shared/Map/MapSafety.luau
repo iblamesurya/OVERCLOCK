@@ -58,9 +58,10 @@ function MapSafety.verifySpawnPointFloor(
 		end
 	end
 	-- Also exclude FallbackBaseplate (transient safety net should not count as map floor)
-	local fallback = Workspace:FindFirstChild("FallbackBaseplate")
-	if fallback then
-		table.insert(chars, fallback)
+	for _, inst in ipairs(Workspace:GetDescendants()) do
+		if inst:GetAttribute("IsFallbackBaseplate") then
+			table.insert(chars, inst)
+		end
 	end
 	if #chars > 0 then
 		params.FilterDescendantsInstances = chars
@@ -120,9 +121,10 @@ function MapSafety.verifyStandingClearance(
 			table.insert(chars, p.Character)
 		end
 	end
-	local fallback = Workspace:FindFirstChild("FallbackBaseplate")
-	if fallback then
-		table.insert(chars, fallback)
+	for _, inst in ipairs(Workspace:GetDescendants()) do
+		if inst:GetAttribute("IsFallbackBaseplate") then
+			table.insert(chars, inst)
+		end
 	end
 	if #chars > 0 then
 		params.FilterDescendantsInstances = chars
