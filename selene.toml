@@ -1,0 +1,11 @@
+std = "roblox"
+
+[lints]
+incorrect_standard_library_use = "deny"
+must_use = "deny"
+no_effect = "deny"
+unempty_action = "allow"
+shadowing = "deny"
+unused_variable = "deny"
+parenthese_conditions = "deny"
+roblox_incorrect_roact_usage = "deny"

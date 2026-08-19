@@ -1,0 +1,495 @@
+Total MD files found: 52
+
+--- 1. CODE FENCE CONCATENATIONS ---
+input\index.md: /A | N/A |\n| Toggle backpack | ``` | N/A | N/A |\n| Equip/unequip
+parts\model-generation.md: nd an on‑screen UI speedometer.```lua\nlocal GenerationService = gam
+parts\model-generation.md: hat flies through player input.```lua\nlocal GenerationService = gam
+scripting\index.md: the following code to the file:```lua\nlocal helloArray = {"h", "e",
+scripting\index.md: aytesting) and note the output:```text\nh\ne\nl (x2)\no\nworld\n```\n\n## Ge
+scripting\index.md: the following code to the file:```lua\nprint("Hello script types and
+
+--- 2. TABLE FENCE ISSUES ---
+input\index.md:107: | Toggle backpack | ``` | N/A | N/A |
+
+--- 3. HEADING CONCATENATIONS ---
+INDEX.md: Creator documentation files.\n\n## Table of Contents\n1. [Workspace
+INDEX.md: ory](#master-inventory)\n\n---\n\n## Workspace & Environment\n- [Work
+INDEX.md: Visual and particle effects.\n\n## Parts & Geometry\n- [Creation Ov
+INDEX.md: enerative AI model creation.\n\n## Physics & Simulation\n- [Physics
+INDEX.md: nd spatial unit conversions.\n\n## Scripting & Code\n- [Scripting O
+INDEX.md: itioning from Unreal Engine.\n\n## Audio, UI & Animation\n- [Audio]
+INDEX.md:  object animation workflows.\n\n## Players & Characters\n- [Users a
+INDEX.md: rs, and humanoid properties.\n\n## Input & Matchmaking\n- [Input](i
+INDEX.md: t, and matchmaking services.\n\n## Engine & Cloud Services\n- [Clou
+INDEX.md: ent and server optimization.\n\n## Monetization & Production\n- [Di
+INDEX.md:  managed price optimization.\n\n## IP Licensing\n- [Use Iconic IP o
+INDEX.md: ng and branded content.\n\n---\n\n## Master Inventory\n\n| # | Topic T
+animation\index.md:  non-player character model.\n\n## Animation Editor\n\nThe [Animatio
+animation\index.md: s the rig from pose-to-pose.\n\n## Inverse kinematics\n\nYou can use
+animation\index.md: for a door knob when nearby.\n\n## Animation events\n\nAn [animation
+audio\index.md: cessful in their objectives.\n\n## Audio assets\n\nYou can import [a
+audio\index.md: op audio and music partners.\n\n## Audio objects\n\nRoblox offers ma
+audio\index.md: dd-voice-chat.md) tutorials.\n\n## Audio effects\n\n[Audio effects](
+characters\index.md: lay and account information.\n\n## Basic characters\n\nBasic charact
+characters\index.md: ered-accessories-on-non-r15).\n## Avatar characters\n\nAvatar chara
+characters\index.md:  and Marketplace information.\n## Character Controller Library\n\nT
+cloud-services\data-stores-vs-memory-stores.md: cessible from server scripts.\n## When to use data stores\n\n`Class
+cloud-services\data-stores-vs-memory-stores.md: ference/features/storage.md).\n## When to use memory stores\n\n`Cla
+cloud-services\data-stores-vs-memory-stores.md:  and monthly leaderboards. |\n\n## When to use configs\n\n[Configs](
+cloud-services\data-stores-vs-memory-stores.md: ipliers, welcome messages. |\n\n## When to use secrets stores\n\nUse
+cloud-services\data-stores-vs-memory-stores.md: alytics or music services. |\n\n## When to use in-memory storage i
+creation\index.md: documentation and tutorials.\n\n## The Roblox platform\n\nRoblox is 
+creation\index.md: think about before creating.\n\n#### Overview\n\nLearn about our uniqu
+creation\index.md:  unique platform and values.\n\n#### The Roblox user base\n\nLearn wha
+creation\index.md:  developing on the platform.\n\n#### Designing for Roblox\n\nDiscover 
+creation\index.md: e characteristics of Roblox.\n\n## Games\n\nGames, also referred to 
+creation\index.md: mes possible for your users.\n\n#### Roblox projects\n\nUnderstand how
+creation\index.md: ish them as games on Roblox.\n\n#### Work with assets\n\nUnderstand ho
+creation\index.md: o use them in your projects.\n\n#### The data model\n\nUnderstand the 
+creation\index.md:  3D games look and function.\n\n#### Client-server runtime\n\nUndersta
+creation\index.md: that are rendered by Roblox.\n\n#### Scripting\n\nLearn how to script 
+creation\index.md: logic for your Roblox games.\n\n#### Characters\n\nUnderstand how char
+creation\index.md:  NPCs and Players in Roblox.\n\n#### Custom models and meshes\n\nUnder
+creation\index.md: to create custom 3D objects.\n\n## Roblox Studio\n\nStudio is an all
+creation\index.md:  characters and accessories.\n\n#### Studio overview\n\nLearn about St
+creation\index.md: e all-in-one IDE for Roblox.\n\n#### UI overview\n\nLearn about the St
+creation\index.md: nd tools that are available.\n\n## Discovery and monetization\n\nWit
+creation\index.md: ize and grow your creations.\n\n#### Promoting on Roblox\n\nDiscover h
+creation\index.md: r budget most appropriately.\n\n#### Earning on Roblox\n\nLearn about 
+creation\index.md: nsiderations for developers.\n\n## Avatars\n\nLearn how to build cha
+creator-rewards\index.md:  to learn about any changes.\n\n## Creator Awards Framework - Term
+creator-rewards\index.md: emium, or UGC subscriptions.\n\n## Creator Awards for Creators\n\nTh
+creator-rewards\index.md: d Audience Expansion rewards.\n### Daily Engagement Rewards\n\nCreat
+creator-rewards\index.md: eir sessions to be eligible.\n\n###### Example 1\n\nAn Active Spender vi
+creator-rewards\index.md: re minutes in them that day.\n\n###### Example 2\n\nAn Active Spender vi
+creator-rewards\index.md: spent over 10 minutes in it.\n\n### Audience Expansion Rewards\n\nThe
+creator-rewards\index.md: have previously reactivated_\n\n## Access reward data\n\nCreator Awa
+creator-rewards\index.md: nd withholding requirements.\n\n### For experiences\n\nTo access rewa
+creator-rewards\index.md: h-95th percentile benchmark.\n\n### For share links\n\nTo access rewa
+creator-rewards\index.md: in Robux before adjustments.\n\n## Frequently Asked Questions\n\n###
+creator-rewards\index.md: # Frequently Asked Questions\n\n### Who is eligible to earn Creator
+creator-rewards\index.md:  Audience Expansion rewards.\n\n### What terms apply to Creator Rew
+creator-rewards\index.md: e credit for "alt" accounts.\n\n### Will Paid Access experiences be
+creator-rewards\index.md:  Robux from Creator Rewards.\n\n### Who counts as an Active Spender
+creator-rewards\index.md: t $9.99 in the last 60 days.\n\n### What is happening with Engageme
+discovery\index.md: p your games get discovered.\n\n## How recommendation works\n\nRoblo
+discovery\index.md: ement signals remain steady.\n\n### Key signals\n\nRoblox ranks games
+discovery\index.md:  such user cohorts (expand).\n\n## Understand your metrics in Crea
+discovery\index.md: lity or newly popular games.\n\n## Use Home Recommendations analyt
+discovery\index.md: e Recommendations dashboard.\n\n## Best practices for discovery\n\nY
+discovery\index.md: es following the same trend.\n\n### Issues that limit exposure\n\nThe
+discovery\index.md: a previously published game.\n\n### Track and improve content quali
+discovery\index.md: a description of your issue.\n\n## Discovery for other surfaces\n\nH
+discovery\index.md: rimer on our other surfaces:\n\n## Other Home sorts\n\nHome is a use
+discovery\index.md: r.md#sponsored-experiences).\n\n### Game details page\n\nThe Game Det
+discovery\index.md: cover more relevant content.\n\n#### Experience events\n\n**Experience
+discovery\index.md: nclude a primary event type.\n\n### Search\n\n**Search** aims to be a
+discovery\index.md:  games" or "avatar editors".\n\n### Discover (top charts and trendi
+discovery\index.md: c space that delights users.\n\n### Notifications\n\n**Notifications*
+effects\index.md: ther objects or attachments.\n\n## Light sources\n\nLight sources le
+effects\index.md: potlights_\n\n_Surface lights_\n\n## Particle emitters\n\nA [particle 
+effects\index.md: ike fire, smoke, and sparks.\n\n## Beams\n\nA [beam](/docs/en-us/eff
+effects\index.md: e) of each attachment point.\n\n## Trails\n\nA [trail](/docs/en-us/e
+effects\index.md: effects/trails.md#lifetime).\n\n## Highlighting\n\n`Class.Highlight`
+environment\index.md:  game appears on the screen.\n\n## Global lighting\n\nThe `Class.Lig
+environment\index.md: ting.Brightness|Brightness`.\n\n#### ClockTime = 0\n\n![Lighting with 
+environment\index.md: -properties/TimeOfDay-0.jpg)\n\n#### ClockTime = 6.3\n\n![Lighting wit
+environment\index.md: roperties/TimeOfDay-6.3.jpg)\n\n#### Brightness = 0.5\n\n![Lighting wi
+environment\index.md: operties/Brightness-0.5.jpg)\n\n#### Brightness = 3.75\n\n![Lighting w
+environment\index.md: s, spotlights, or TV screens.\n## Atmospheric effects\n\n[Atmospher
+environment\index.md: er a brilliant sunset scene_\n\n## Clouds and skies\n\nBy default, t
+environment\index.md: namic clouds across the sky_\n\n## Post-processing effects\n\n**Post
+input\index.md: s/input/gamepad.md), and VR.\n\n## Cross-platform input\n\nRoblox is
+input\index.md: nputs perform which actions.\n\n## Input type detection\n\nIn cross‑
+input\index.md: anticipated player behavior.\n\n#### Behavior\n\nThe value of `Class.U
+input\index.md: m.PreferredInput\|Gamepad` |\n\n#### Benefits\n\nImportantly, the `Cla
+input\index.md: erredInputChanged()\nend)\n```\n\n## Default bindings\n\nRoblox provid
+input\index.md: with their intended purpose.\n\n#### Roblox Reserved\n\n| Action | Mou
+input\index.md:  `PrintScreen` | N/A | N/A |\n\n#### Character\n\n| Action | Mouse/Key
+input\index.md:  | Tap virtual jump button |\n\n#### Interface / Inventory\n\n> **Info
+input\index.md: abled` is enabled (default)_\n\n#### Camera\n\n| Action | Mouse/Keyboa
+ip-licensing\index.md: -\n\n# Use Iconic IP on Roblox\n\n##\n\nOne of the most significant way
+ip-licensing\index.md: icensed IP into their games.\n\n### Request to partner with a right
+ip-licensing\index.md: us/ip-licensing/creators.md)\n\n### Register your IP\n\nFor eligible 
+ip-licensing\index.md: # Meet our founding partners\n\n## For creators: unleash your crea
+ip-licensing\index.md: roblox.com/explore/licenses)\n\n## For rights holders: new IP mana
+ip-licensing\index.md: png)\n\n# Latest announcements\n\n### New Lionsgate IPs added to the 
+ip-licensing\index.md: e-new-pitch-feature/4008864)\n\n### Kodansha IPs now available\n\nDur
+ip-licensing\index.md: oom/2025/09/roblox-rdc-2025)\n\n### Roblox Launches New Licensing P
+ip-licensing\index.md: ng-platform-for-experiences)\n\n### The Evolution of IP on Roblox\n\n
+matchmaking\index.md:  other gameplay preferences.\n\n## How matchmaking works\n\nWhen a p
+matchmaking\index.md: making/Custom_Matchmaking.png) ## Scoring\n\nThe matchmaking scorin
+matchmaking\index.md: ng](/docs/en-us/scoring.md).\n\n## Attributes\n\nAttributes are prop
+matchmaking\index.md: gnals.md#custom-attributes).\n\n## Signals\n\nSignals used in server
+matchmaking\index.md: -signals.md#custom-signals).\n\n## Custom matchmaking\n\nWhen a play
+matchmaking\index.md: s/customize-matchmaking.md).\n\n## Analytics\n\nMatchmaking analytic
+monetization\monetize-experiences.md: x](/docs/en-us/monetize.md).\n\n## In-game monetization\n\n**Monetiz
+monetization\monetize-experiences.md: rectly from within a game. |\n\n## Advertising\n\n**Advertising feat
+parts\index.md: ls.md) for more information.\n\n## Basic part types\n\n`Class.Part` 
+parts\index.md: er-Wedge.png)_ Corner Wedge_\n\n## Part properties\n\nEach part has 
+parts\index.md: us/parts/solid-modeling.md).\n\n## Insert parts\n\nThe **Part** inse
+parts\index.md: plorer.md#insert-and-parent).\n## Select parts\n\nAs you hover over
+parts\index.md: r-Window-Object-Selection.jpg) ## Transform parts\n\nYou can move, 
+parts\index.md: an **L** indicator displays.\n\n#### World\n\n![An angled block part w
+parts\index.md: /Move-World-Orientation.png)\n\n#### Local\n\n![An angled block part w
+parts\index.md: R` (Windows) or `⌥``R` (Mac).\n### Move\n\nYou can move a selected p
+parts\index.md: snapping by holding `Shift`.\n\n#### Move Tool\n\nTo move a part by an
+parts\index.md: ansform-Move-Pivot-Snap.png)\n\n#### Cursor Drag\n\nTo move a part by 
+parts\index.md: rm-Move-Cursor-Drag-T-R.png)\n\n### Scale\n\nTo scale (resize) a sele
+parts\index.md: ing/parts/Transform-Scale.png) ### Rotate\n\nTo rotate a selected pa
+parts\index.md:  pressing `Ctrl``R` (`⌘``R`).\n## Other actions\n\n### Group\n\nYou c
+parts\index.md: ` (`⌘``R`).\n## Other actions\n\n### Group\n\nYou can group objects in
+parts\index.md: cut of `Ctrl``U` or `⌘``U`).\n\n### Anchor\n\nThe **Anchor** toggle c
+parts\index.md: anchored object unanchors it.\n### Color\n\nWhile a part is gray by 
+parts\index.md: rough the following methods.\n\n#### Color Button\n\nClicking the **Co
+parts\index.md: t to apply the chosen color.\n\n#### Color Popup\n\nThe **Color** popu
+parts\index.md: properties/Color-Picker.png)\n\n#### RGB Value\n\nTo define a specific
+parts\index.md: perties/Color-RGB-Entry.png)\n\n### Material\n\nSimilar to [color](#c
+parts\index.md: d custom materials to parts.\n\n### Lock\n\nThe **Lock** toggle contr
+parts\materials.md: eone else created the model.\n\n## Apply materials\n\nYou can quickl
+parts\materials.md: aint tool" application mode.\n\n### Material widget\n\nThe **Material
+parts\materials.md: l/Toolbar-Material-Picker.png) ### Material Manager\n\nThe **Materia
+parts\materials.md: ugh the following workflows.\n\n#### Apply to Selected\n\nThe default 
+parts\materials.md: Apply-To-Selected-Parts.png)\n\n#### Paint Tool\n\nYou can also use a 
+parts\materials.md: n again to disable the tool.\n\n## Custom materials\n\nThe [Material
+parts\materials.md: eAppearance` instances don't.\n### Create custom materials\n\nYou ca
+parts\materials.md: cs/en-us/studio/explorer.md).\n### Apply custom materials\n\nFor [pa
+parts\materials.md: l terrain using that material._### Material overrides\n\nYou can set
+parts\materials.md: he terrain in a single place.\n#### Set overrides\n\nTo set a custom 
+parts\materials.md: tudio/properties.md) window.\n\n#### Terrain details\n\nBy default, ap
+parts\materials.md: studs per tile, and pattern.\n\n#### Disable overrides\n\nYou can disa
+parts\materials.md: or a specific base material.\n\n#### Disable Entire Override\n\n1. In 
+parts\materials.md: disable **Set as Override**.\n\n#### Disable Override for Specific M
+parts\materials.md: lect **None** from the menu.\n\n## Physical properties\n\nAll materi
+parts\materials.md: ies) of the part's material.\n\n#### Applying to Custom Materials\n\nT
+parts\materials.md: ies-Physical-Overridden.png)\n\n#### Per-Part Overrides\n\nIf you need
+parts\materials.md: ysicalProperties` reference.\n\n## Adaptive materials\n\nWhen you ap
+parts\materials.md: GrassDry`, and `GrassBurned`.\n## Asset and property reference\n\n#
+parts\materials.md: Asset and property reference\n\n### Base materials\n\nShaders generat
+parts\materials.md: .RoughnessMap|RoughnessMap`.\n\n#### Current Base\n\n| Material | Colo
+parts\materials.md:  computational limitations._\n\n#### Pre-2022 Base\n\n| Material | Col
+parts\materials.md: 7547188891` | `7547332869` |\n\n#### Current Terrain\n\n| Material | T
+parts\materials.md: 9439650689` | `9439658127` |\n\n#### Pre-2022 Terrain\n\n| Material | 
+parts\materials.md: 7547639230` | `7547640511` |\n\n### Default colors\n\nThe following t
+parts\materials.md: 108]` | `rgb(172,148,108)` |\n\n### Default physical properties\n\nTh
+parts\meshes.md: tar.md) for more information.\n## Import meshes\n\nYou can import m
+parts\meshes.md: ters with facial animations.\n\n## Customize meshes\n\nUnlike basic 
+parts\meshes.md: advanced rendering fidelity.\n\n### Texture\n\n**Textures** contribut
+parts\meshes.md: or maps, on a single object.\n\n#### PBR Textures\n\nStudio supports f
+parts\meshes.md:  add PBR textures to a mesh:\n\n#### SurfaceAppearance\n\n1. In the [E
+parts\meshes.md: ing to the PBR texture maps.\n\n#### MaterialVariant\n\n1. In the [Exp
+parts\meshes.md:  custom physical properties.\n\n#### Single Texture\n\nIf the mesh you
+parts\meshes.md: t override the PBR textures.\n\n### Level of detail\n\nYou can dynami
+parts\meshes.md: s/Render-Fidelity-Low.jpg) |\n\n### Collision fidelity\n\n**Collision
+parts\meshes.md: r for the engine to compute.\n\n#### Original Mesh\n\n![Original mesh 
+parts\meshes.md: ision-Fidelity-MeshPart.jpg)\n\n#### Default\n\n![Collision fidelity o
+parts\meshes.md: lision-Fidelity-Default.jpg)\n\n#### Box\n\n![Collision fidelity of Bo
+parts\meshes.md: /Collision-Fidelity-Box.jpg)\n\n#### Hull\n\n![Collision fidelity of H
+parts\meshes.md: Collision-Fidelity-Hull.jpg)\n\n#### Precise\n\n![Collision fidelity o
+parts\meshes.md: s-and-rendering-parameters).\n\n## Rigging and skinning\n\n**Rigging
+parts\model-generation.md: ‑driven creative experience.\n\n## Overview\n\n`Class.GenerationServ
+parts\model-generation.md: ts performant for your game.\n\n## Schema-based generation\n\nTo cre
+parts\model-generation.md: udio/explorer.md) hierarchy:\n\n## Retargetable scripts\n\nIn Roblox
+parts\model-generation.md: t type you'd like to generate. #### Car This example generates a fu
+parts\model-generation.md: onster truck with spiked roof"`#### Airplane This example generates
+parts\models.md: ngs that comprise the model_\n\n## Create models\n\n> **Warning:** Y
+parts\models.md:  on Windows or `⌘``U` on Mac.\n### Set a primary part\n\nIf you have
+parts\models.md: to become your primary part.\n\n## Select models\n\nAs you hover ove
+parts\models.md: cling).\n\n_Selection cycling_\n\n## Transform models\n\nYou can move,
+parts\models.md: g the model's orientation. |\n\n## Model behaviors\n\nWhile models a
+parts\models.md: hibit some unique behaviors.\n\n### Character models\n\nWhen a `Class
+parts\models.md: display/Display-Indicated.jpg) ### Destroy height\n\nTo prevent part
+parts\models.md: odel will also be destroyed.\n\n## Model streaming\n\nInstance [stre
+parts\models.md: s.md#model-level-of-detail).\n\n## Upload models\n\nWhen you upload 
+parts\models.md: /projects/assets/privacy.md)\n\n## Distribute and sell models\n\nYou
+parts\procedural-models.md: e's width or length increases._## Insert procedural models\n\nYou c
+parts\procedural-models.md:  your own generator modules.\n\n## OnGenerate function\n\nThe `OnGen
+parts\procedural-models.md: ten to the `targetContainer`\n\n### Generator modules\n\nThe `OnGener
+parts\procedural-models.md:  main `DataModel` hierarchy.\n\n### Parameters\n\n**Parameters** are 
+parts\procedural-models.md:  module's sandboxing status.\n\n## Regeneration behavior\n\nTo maint
+parts\procedural-models.md: he next time the game loads.\n\n### Execution process\n\nWhen process
+parts\procedural-models.md: with the updated parameters.\n\n### Generation results\n\nPlacing gen
+parts\procedural-models.md: ars the model's dirty state.\n\n## Generation details\n\nIn addition
+parts\procedural-models.md: uralModel` generation works.\n\n### Sizing\n\nBecause of the scale no
+parts\procedural-models.md: ing results using `ScaleTo`.\n\n### Timeouts\n\nAs a failsafe, a gene
+parts\procedural-models.md: thout impacting performance.\n\n### Undo history\n\nGenerated results
+parts\procedural-models.md: th the most recent waypoint.\n\n### Sandboxing\n\n`ProceduralModel` s
+parts\procedural-models.md:  impacting in-game behavior.\n\n### Nesting\n\n`ProceduralModels` can
+parts\procedural-models.md: ested models generated last.\n\n## Limitations\n\n- Generation is no
+parts\terrain.md: scripting) terrain creation.\n\n## Terrain materials\n\nThe followin
+parts\terrain.md: rrain/Material-Air.png)_Air_\n\n### Water appearance\n\nBy default, t
+parts\terrain.md:  set it to the highest level.\n### Grass animation\n\nWhile most mat
+parts\terrain.md: environment/global-wind.md).\n\n### Custom terrain colors\n\nEach ter
+parts\terrain.md: lor to better fit your game.\n\n#### Default\n\n![Default terrain colo
+parts\terrain.md: deling/terrain/Showcase.jpg)\n\n#### Fantasy\n\n![Custom terrain color
+parts\terrain.md: n/Custom-Colors-Fantasy.jpg)\n\n#### Tundra\n\n![Custom terrain colors
+parts\terrain.md: /docs/en-us/parts.md#color).\n\n## Generate terrain\n\nUsing the fol
+parts\terrain.md: on a heightmap and colormap.\n\n### Generate tool\n\nThe **Generate**
+parts\terrain.md: ick the **Generate** button.\n\n### Heightmaps and colormaps\n\nA **h
+parts\terrain.md: ernatively, upload a colormap. #### Material To apply one consisten
+parts\terrain.md: b and pick a terrain material. #### Colormap To apply a colormap, c
+parts\terrain.md: ick the **Generate** button.\n\n### Scripting\n\nYou can script terra
+parts\terrain.md: 4), Enum.Material.Grass)\n```\n\n## Large-scale editing\n\nThe editor
+parts\terrain.md: ols for large-scale editing.\n\n### Select regions\n\nThe **Select** 
+parts\terrain.md: direction along that axis. |\n\n### Transform regions\n\nThe **Transf
+parts\terrain.md: button to apply the changes.\n\n### Fill and replace regions\n\nThe *
+parts\terrain.md: n filled with Salt material_\n\n### Set sea level\n\nThe **Sea Level*
+parts\terrain.md:  selected region with water.\n\n## Detailed editing\n\nThe **Edit** 
+parts\terrain.md: shows the material picker. |\n\n### Draw\n\nThe **Draw** tool **adds*
+parts\terrain.md: rain-editor.md#smooth) tool.\n\n### Sculpt\n\nThe **Sculpt** tool **a
+parts\terrain.md: y activates the Smooth tool.\n\n### Smooth\n\nThe **Smooth** tool smo
+parts\terrain.md: ng the Draw or Sculpt tools.\n\n### Flatten\n\nThe **Flatten** tool f
+parts\terrain.md: l's **Flatten Mode** option.\n\n### Paint\n\nThe **Paint** tool, usin
+performance-optimization\index.md: /optimization/Perf-Flow.png)\n\n## Why performance matters\n\nTo put
+performance-optimization\index.md: ention, and make more money.\n\n## Measure performance\n\n- **Frame 
+physics\adaptive-timestepping.md: isms that are hard to solve.\n\n## Enable adaptive mode\n\nTo enable
+physics\adaptive-timestepping.md: and **4dt Islands** (60 Hz).\n\n## Debug visualization\n\nDuring tes
+physics\adaptive-timestepping.md: eir current simulation rate_\n\n## Fixed-rate scenarios\n\nAdaptive 
+physics\assemblies.md: ht corner of the 3D viewport.\n## Assembly properties\n\nThe follow
+physics\assemblies.md: art](#assembly-root-part). |\n\n## Assembly root part\n\nEvery assem
+physics\assemblies.md:  then parts named **Torso**.\n\n## Anchoring behavior\n\nWhen one of
+physics\index.md: nts and collision filtering.\n\n## Assemblies\n\nAn [assembly](/docs
+physics\index.md: .png)_1 assembly; 179 parts_\n\n## Constraints\n\nNon-anchored assem
+physics\index.md: ysics/mover-constraints.md).\n\n#### Mechanical\n\nMechanical constrai
+physics\index.md: nical-constraints.md) guide.\n\n#### Mover\n\nMover constraints apply 
+physics\index.md: mover-constraints.md) guide.\n\n## Collisions\n\nCollision events au
+physics\index.md: ng and filtering collisions.\n\n## Network ownership\n\nIn order to 
+physics\index.md: ) guide for further details.\n\n## Adaptive timestepping\n\nThe engi
+physics\index.md:  guide for more information.\n\n## Sleep system\n\nWhen an assembly 
+physics\mechanical-constraints.md:  with the rest of the world_\n\n## Constraint visualization\n\nTo ac
+physics\mechanical-constraints.md: ht corner of the 3D viewport.\n## Create constraints\n\nAll mechani
+physics\mechanical-constraints.md: /studio/explorer.md) window.\n\n#### Constraint Picker\n\n1. In Studio
+physics\mechanical-constraints.md:  connecting two attachments_\n\n#### Explorer\n\n> **Info:** Note that
+physics\mechanical-constraints.md: tudio/properties.md) window.\n\n## Physical simulation\n\nTo simulat
+physics\mover-constraints.md: ransform `Datatype.CFrame`._\n\n## Constraint visualization\n\nTo ac
+physics\mover-constraints.md: ht corner of the 3D viewport.\n## Create constraints\n\nMover const
+physics\mover-constraints.md: /studio/explorer.md) window.\n\n#### Constraint Picker\n\n1. In Studio
+physics\mover-constraints.md: n.md) using two attachments_\n\n#### Explorer\n\n1. In the [Explorer](
+physics\mover-constraints.md: etical line connecting them.\n\n## Physical simulation\n\nTo simulat
+physics\mover-constraints.md: ow as the rope becomes taut.\n\n## Legacy mover conversion\n\nIf you
+physics\network-ownership.md: r to prioritize other tasks.\n\n## BasePart ownership\n\nBy default,
+physics\network-ownership.md: kely to become player-owned.\n\n## Assembly ownership\n\nIf a physic
+physics\network-ownership.md: ts previously set ownership.\n\n## Setting ownership\n\nIn games wit
+physics\network-ownership.md: nt that controls the vehicle.\n## Visualizing ownership\n\nTo assis
+physics\network-ownership.md: oggle on **Network owners**.\n\n## Security concerns\n\nRoblox canno
+physics\sleep-system.md: on of non‑moving assemblies.\n\n## Sleep states\n\nEach assembly can
+physics\sleep-system.md: ‑checking](#sleep-checking).\n\n### Awake\n\nAn **awake** assembly is
+physics\sleep-system.md: additional-wake-situations).\n\n### Sleeping\n\nA **sleeping** assemb
+physics\sleep-system.md: #additional-wake-situations).\n### Sleep-checking\n\nA non-moving as
+physics\sleep-system.md: s the [awake](#awake) state.\n\n## Threshold reference\n\nThe follow
+physics\sleep-system.md: ocity without falling asleep.\n## Actuated joints\n\nSometimes deve
+physics\sleep-system.md: eed\|WinchSpeed`</li></ul> |\n\n## Additional wake situations\n\nIn 
+physics\sleep-system.md: us` of an `Class.Explosion`.\n\n## Debug visualization\n\nDuring pla
+physics\units.md: erials.md#custom-materials).\n\n## Unit conversions\n\n#### Primary 
+physics\units.md: rials).\n\n## Unit conversions\n\n#### Primary Units\n\nIn general, you 
+physics\units.md: \n\n_* RMU = Roblox Mass Unit_\n\n#### Derived Units\n\nThe primary unit
+physics\units.md: owton-studs [RMU stud²/s²] |\n\n#### Gravity\n\nThe following table il
+physics\units.md: s² \text{9.8 m/s²}9.8 m/s² |\n\n#### Physical Limits\n\nRoblox places 
+physics\units.md: .0}0.0 | 100 \text{100}100 |\n\n## Unit consistency\n\nInternally, t
+players\index.md:  IDs](/docs/en-us/users.md).\n\n## Lifecycle\n\nThe `Class.Players` 
+players\index.md: haracter spawns or despawns.\n\n### User join\n\nWhen a user client c
+players\index.md: ns with currentData\nend)\n```\n\n### Character spawn\n\nBy default, a 
+players\index.md: ge the outfit of the avatar.\n\n### Character despawn\n\nWhen the pla
+players\index.md: sociated with the character.\n\n### User leave\n\nWhen a user client 
+players\index.md: (errorMessage)\n	end\nend)\n```\n\n## Containers\n\nEach `Class.Player`
+players\index.md: rver/Data-Model-Mapping.png)\n\n#### Backpack\n\n`Class.Tool` objects 
+players\index.md: (/docs/en-us/disable-ui.md).\n\n#### StarterGear\n\nWhen a player's ch
+players\index.md:  retribution or retaliation.\n\n#### PlayerGui\n\nThe `Class.PlayerGui
+players\index.md: CharacterAsync()` is called.\n\n#### PlayerScripts\n\nThe `Class.Playe
+players\index.md: ed to `Class.PlayerScripts`.\n\n## Ban users\n\nTo ensure civility a
+players\index.md: eatures/bans-and-blocks.md).\n\n### Device blocking\n\nIn addition to
+players\index.md: ing them to rejoin the game.\n\n### Ban guidelines\n\nWhen implementi
+players\index.md: Roblox-Community-Standards).\n\n### Message guidelines\n\nWhen a user
+production\game-design.md:  through the design process.\n\n## What's new\n\n_Sketch Series: Onb
+production\game-design.md: h Series: Retention Metrics_\n\n## Design your game\n\n- [Design for
+production\game-design.md: p bring your vision to life.\n\n## Build your game\n\n- [Onboarding:
+production\game-design.md: intuitive and engaging game.\n\n## Monetize your experience\n\n- [Mo
+production\game-design.md: when introducing new events.\n\n## Support your game\n\n- [LiveOps e
+production\monetization\commerce-products.md: purchases) within your game.\n\n## Eligibility\n\nThe following elig
+production\monetization\commerce-products.md: ments are subject to change.\n\n### Creator\n\nEligible creators can 
+production\monetization\commerce-products.md: dards) on an on-going basis.\n\n### Game\n\nCreators must ensure that
+production\monetization\commerce-products.md: 21172) on an on-going basis.\n\n### User\n\nAt this time, only US-bas
+production\monetization\commerce-products.md: information about each user.\n\n### Digital benefits\n\nCertain creat
+production\monetization\commerce-products.md: ast $50,000 USD in one year.\n\n#### Bundled digital benefits\n\nIf yo
+production\monetization\commerce-products.md:  for the bundle is complete.\n\n## Import catalog items\n\nIn the [C
+production\monetization\commerce-products.md: ntend to import into Roblox.\n\n### Import catalog items from Shopi
+production\monetization\commerce-products.md: og tab of the Commerce page.\n\n### Remove catalog items\n\nIn the Co
+production\monetization\commerce-products.md: em and recreate the product.\n\n### Modify catalog items\n\nWhen you 
+production\monetization\commerce-products.md: s are displayed and managed.\n\n## Manage commerce products\n\nAfter
+production\monetization\commerce-products.md:  creating commerce products.\n\n### Create\n\nOnce you have imported 
+production\monetization\commerce-products.md: ing `Class.CommerceService`.\n\n### Get IDs\n\nYou will need the prod
+production\monetization\commerce-products.md: o copy it to your clipboard.\n\n### Put on sale\n\nCommerce products 
+production\monetization\commerce-products.md:  Off Sale** for the product.\n\n### Delete\n\nTo delete a commerce pr
+production\monetization\commerce-products.md: ete** to delete the product.\n\n## Implement purchases\n\nIn your ga
+production\monetization\commerce-products.md: ced them into portrait mode.\n\n### Grant digital benefits\n\n> **Inf
+production\monetization\commerce-products.md: item with a digital benefit.\n\n#### Avatar items\n\nIf an avatar item
+production\monetization\commerce-products.md: atar item will be regranted.\n\n#### Developer products\n\nAfter a use
+production\monetization\commerce-products.md: ant order\n details.",\n}\n```\n\n## Product detail page\n\nThe **Prod
+production\monetization\commerce-products.md: ffered within the same game.\n\n### Product images\n\nThe product ima
+production\monetization\commerce-products.md: the new images are approved.\n\n### Product title, price, and selle
+production\monetization\commerce-products.md: l the new title is approved.\n\n### Variants and quantity\n\nProduct 
+production\monetization\commerce-products.md: e new versions are approved.\n\n### Product details\n\nThe **Product 
+production\monetization\commerce-products.md: t is approved by moderation.\n\n### Additional information\n\nThe **A
+production\monetization\commerce-products.md: new information is approved.\n\n### Virtual benefit with purchase\n\n
+production\monetization\commerce-products.md: ent policies and moderation.\n\n### More from this game\n\nThis secti
+production\monetization\developer-exchange.md: r real-world local currency.\n\n## What is Earned Robux?\n\n**Earned
+production\monetization\developer-exchange.md: Robux at its own discretion.\n\n## What is the exchange rate?\n\nThe
+production\monetization\developer-exchange.md:  Earned Robux balance first.\n\n## Eligibility requirements\n\nTo pa
+production\monetization\developer-exchange.md: nsion from the DevEx program.\n## Submit a DevEx request\n\nIf you 
+production\monetization\developer-exchange.md: hes processing your payment.\n\n## Frequently asked questions\n\n**H
+production\monetization\developer-products.md: tion/monetization/passes.md).\n## Create a developer product\n\n> *
+production\monetization\developer-products.md: zation/paid-random-items.md).\n## Get the developer product ID\n\nT
+production\monetization\developer-products.md:  ID** from the context menu.\n\n## Sell a developer product\n\n> **W
+production\monetization\developer-products.md: ur game](#outside-your-game)\n\n### Inside your game\n\nTo implement 
+production\monetization\developer-products.md: (productInfo))\n	end\nend)\n```\n\n### Outside your game\n\nTo enable de
+production\monetization\developer-products.md: ccessfully purchased an item.\n#### Test mode\n\n> **Warning:** Items
+production\monetization\developer-products.md: eceipt|ProcessReceipt` page.\n\n#### Enable external sales\n\n> **Info
+production\monetization\developer-products.md: ternal purchases** checkbox.\n\n#### Limitations\n\n- Items for sale i
+production\monetization\developer-products.md: , or user settings and roles\n\n## Handle a developer product purc
+production\monetization\developer-products.md: oud-services/data-stores.md).\n## Personalize your in-game store\n
+production\monetization\developer-products.md:  monetization opportunities.\n\n### Rank developer products for sal
+production\monetization\developer-products.md:  products into store\nend\n```\n\n### Display your top developer prod
+production\monetization\developer-products.md:  products into store\nend\n```\n\n## Developer product analytics\n\nUs
+production\monetization\index.md: monetization-foundations.md).\n## Monetization strategies\n\nBe min
+production\monetization\index.md: e fun creating a Roblox game.\n### Tourists and locals\n\nIt can be 
+production\monetization\index.md: esign/design-for-roblox.md).\n\n### Social features\n\nRoblox users t
+production\monetization\index.md: rly effective when combined.\n\n### Live ops\n\nPost-launch support i
+production\monetization\index.md: sign/liveops-essentials.md).\n\n## Products\n\n### Immersive ads\n\nTh
+production\monetization\index.md: essentials.md).\n\n## Products\n\n### Immersive ads\n\nThe [immersive a
+production\monetization\index.md:  format_\n\n_Portal ad format_\n\n### Roblox Plus\n\n[Roblox Plus](/doc
+production\monetization\index.md: ent in paid private servers.\n\n### Subscriptions\n\n[Subscriptions](
+production\monetization\index.md: mples of game subscriptions_\n\n### Passes\n\nA [pass](/docs/en-us/pr
+production\monetization\index.md: em, or a permanent power-up.\n\n### Developer Products\n\nA [develope
+production\monetization\index.md: formation through scripting.\n\n### Managed pricing\n\n[Managed prici
+production\monetization\index.md: ducts and regions over time.\n\n### Price optimization\n\n[Price opti
+production\monetization\index.md: ing your prices competitive.\n\n### Paid access in Robux\n\n[Paid acc
+production\monetization\index.md: p with testing and feedback.\n\n### Paid access in local currency\n\n
+production\monetization\index.md: p with testing and feedback.\n\n### Private servers\n\nA [private ser
+production\monetization\index.md: ers a **monthly Robux fee**.\n\n### Catalog fees and commissions\n\nY
+production\monetization\index.md:  also receives a commission.\n\n### Plugins and Models\n\nA [plugin](
+production\monetization\index.md: arting from the date of sale.\n## Guidelines\n\nAs you design and i
+production\monetization\index.md: l audiences on the platform.\n\n### Presenting products\n\nTo maintai
+production\monetization\index.md: cy that isn't user-friendly.\n\n### Promoting to global audiences\n\n
+production\monetization\managed-pricing.md: u can also reschedule tests.\n\n## Opt in and enroll items\n\n> **In
+production\monetization\managed-pricing.md: reports for completed tests.\n\n### Item eligibility and defaults\n\n
+production\monetization\managed-pricing.md: in price optimization tests.\n\n## Price optimization\n\nManaged pri
+production\monetization\managed-pricing.md: tion/price-optimization.md).\n\n## Regional pricing\n\nManaged prici
+production\monetization\paid-access-local-currency.md: d-access-in-the-creator-hub).\n## Eligibility\n\nTo charge users fo
+production\monetization\paid-access-local-currency.md: nly apply to the group owner.\n## Pricing\n\nWhen you charge for pa
+production\monetization\paid-access-local-currency.md:  time using the Creator Hub.\n\n## Refunds\n\nUsers have 48 hours to
+production\monetization\paid-access-local-currency.md: 't available after 48 hours.\n\n## Set up your account to receive 
+production\monetization\paid-access-local-currency.md: p owners can receive payouts.\n## Enable paid access in the Creat
+production\monetization\paid-access-local-currency.md:  team has reviewed your game.\n## Enable paid access in Roblox St
+production\monetization\paid-access-local-currency.md: -access-in-the-creator-hub).\n\n## View transaction history\n\nTo vi
+production\monetization\paid-access-local-currency.md: nd the user's refund status.\n\n## Demo mode\n\n**Demo mode** lets u
+production\monetization\paid-access-local-currency.md: eatures until they purchase.\n\n### Enable demo mode\n\nOn the **Acce
+production\monetization\paid-access-local-currency.md: ing or disabling the feature.\n### Control the demo experience in 
+production\monetization\paid-access-local-currency.md: d:Connect(onPlayerAdded)\n```\n\n## Policies\n\nPaid access games in 
+production\monetization\paid-access-robux.md: ss are not available on Xbox.\n## Eligibility\n\nTo charge users fo
+production\monetization\paid-access-robux.md: hat is at least 30 days old.\n\n## Pricing\n\nYou can charge users a
+production\monetization\paid-access-robux.md: or paid access to your game.\n\n## Payouts\n\nPayouts for purchases 
+production\monetization\paid-access-robux.md: nked to your Roblox account.\n\n## Refunds\n\nRefunds are not availa
+production\monetization\paid-access-robux.md: rchase paid access in Robux.\n\n## Enable paid access in the Creat
+production\monetization\paid-access-robux.md: .\n5. Click **Save Changes**.\n\n## Enable paid access in Roblox St
+production\monetization\paid-access-robux.md: -access-in-the-creator-hub).\n\n## Policies\n\nRobux paid access gam
+production\monetization\passes.md: ation/developer-products.md).\n## Create a pass\n\n> **Warning:** B
+production\monetization\passes.md: zation/paid-random-items.md).\n## Get the pass ID\n\nTo use scripti
+production\monetization\passes.md:  ID** from the context menu.\n\n## Sell a pass\n\n> **Warning:** Sta
+production\monetization\passes.md: ur game](#outside-your-game)\n\n### Inside your game\n\nTo implement 
+production\monetization\passes.md: oud-services/data-stores.md).\n### Outside your game\n\nTo sell a pa
+production\monetization\passes.md: ab of the game details page.\n\n## Assign pass privileges\n\nYou mus
+production\monetization\passes.md: d:Connect(onPlayerAdded)\n```\n\n## Personalize your in-game store\n
+production\monetization\passes.md:  monetization opportunities.\n\n### Rank passes for sale\n\n`Class.Ma
+production\monetization\passes.md:  into store\n    end\nend)\n```\n\n### Display your top passes\n\n> **Wa
+production\monetization\passes.md:  into store\n    end\nend)\n```\n\n## Promote a pass\n\n> **Info:** Pro
+production\monetization\passes.md: Roblox-Community-Standards).\n\n## Pass analytics\n\nUse pass analyt
+production\monetization\private-servers.md: nd parental control settings.\n## Enable private servers\n\nBefore 
+production\monetization\roblox-plus.md: gible for the DevEx program.\n\n## Earn from in-game purchases\n\nWi
+production\monetization\roblox-plus.md: md#sell-a-developer-product).\n## Earn from in-game Plus subscrip
+production\monetization\roblox-plus.md: status has actually changed.\n\n### Examples\n\nThe following example
+production\monetization\roblox-plus.md:  handling the purchase flow.\n\n##### Example 1\n\nPrint Roblox Plus di
+production\monetization\roblox-plus.md: oductInfo.PriceInRobux))\n```\n\n##### Example 2\n\nCheck whether a user
+production\monetization\roblox-plus.md: ther game.")\n    end\nend\n```\n\n##### Example 3\n\nPrompt users to subs
+production\monetization\roblox-plus.md: player)\n		end\n	end)\nend)\n```\n\n##### Example 4\n\nDetect when the user
+production\monetization\roblox-plus.md: riptionPurchaseFinished)\n```\n\n## Earn from paid private server t
+production\monetization\roblox-plus.md: ble (less than 60 minutes) |\n\n## Earn from Robux transfers\n\nRobu
+production\monetization\roblox-plus.md: ization/robux-transfers.md).\n\n## Track your Plus earnings\n\nYou c
+production\monetization\robux-transfers.md: e safe and policy-compliant.\n\n## Prompt Robux transfers\n\nTo init
+production\monetization\robux-transfers.md: d: {result}\`)\n	end\nend)\n```\n\n## Handle transfer receipts\n\nAfter
+production\monetization\shop.md: lox, including in your game.\n\n## Manage your Shop\n\nYou can manag
+production\monetization\shop.md: of the **Item catalog** tab.\n\n### List or unlist items\n\n> **Info:
+production\monetization\shop.md: developer-product-purchase).\n\n### Update categories\n\nEach item be
+production\monetization\shop.md: ry, and then click **Save**.\n\n## Shop access\n\nPlayers can access
+production\monetization\shop.md: al Shop button in your game.\n\n### In-game menu\n\nBy default, Shop 
+production\monetization\shop.md: e.ExperienceShop, false)\n```\n\n### Global Shop button\n\nThe global 
+production\monetization\shop.md:  toggle the **Shop button**.\n\n## Purchases and earnings\n\nPurchas
+production\monetization\subscriptions.md: ions sold in local currency.\n\n## Subscription guidelines\n\nBefore
+production\monetization\subscriptions.md:  as a subscription purchase.\n\n## Robux vs local currency\n\nSubscr
+production\monetization\subscriptions.md:  100% in subsequent months |\n\n## Create subscriptions\n\nTo create
+production\monetization\subscriptions.md: thod at the time of purchase.\n## Activate subscriptions\n\nYou can
+production\monetization\subscriptions.md:  name of your game on Roblox.\n### Subscription states\n\nSubscripti
+production\monetization\subscriptions.md: rs renew their subscription.\n\n## Edit subscriptions\n\nThe fields 
+production\monetization\subscriptions.md: nd recreate the subscription.\n## Delete subscriptions\n\n> **Warni
+production\monetization\subscriptions.md: ription ID for confirmation.\n\n## Integrate subscriptions into a 
+production\monetization\subscriptions.md: te subscriptions into a game\n\n### Check a user's subscription sta
+production\monetization\subscriptions.md: bscriptionStatusChanged)\n```\n\n### Replace a pass with a subscript
+production\monetization\subscriptions.md: amePassPurchaseFinished)\n```\n\n### Prompt subscription purchases\n\n
+production\monetization\subscriptions.md: riptionPurchaseFinished)\n```\n\n### Other relevant functions\n\nOther
+production\monetization\subscriptions.md:  user's subscription status.\n\n## Earn with subscriptions\n\nFor **
+production\monetization\subscriptions.md: neligible for affiliate fees.\n### Refunds\n\n> **Info:** Subscripti
+production\monetization\subscriptions.md: g-Started-How-To-Subscribe).\n\n### Payouts\n\nYou can find your subs
+production\monetization\subscriptions.md: riptionPaymentHistoryAsync`.\n\n## Subscription analytics\n\n**Subsc
+production\monetization\subscriptions.md: in real time using webhooks.\n\n### Through the Creator Dashboard\n\n
+production\monetization\subscriptions.md: d under the **History** tab.\n\n### Through webhooks\n\nThe Cloud API
+projects\index.md: sting, and publishing tools.\n\n## Places\n\nGames on Roblox are mad
+projects\index.md: -us/projects/data-model.md).\n\n## Assets\n\nIn Roblox, assets such 
+projects\index.md: s/en-us/projects/assets.md).\n\n## Packages\n\n[Packages](/docs/en-u
+projects\index.md:  positions and orientations.\n\n## Settings\n\nGame settings are man
+projects\index.md: ling and clothing overrides.\n\n## Collaboration\n\nWith Studio's **
+projects\index.md: /projects/collaboration.md).\n\n## Testing\n\nYour [team](/docs/en-u
+scripting\index.md: ro-to-scripting.md) tutorial.\n## Luau\n\nRoblox scripts use the [L
+scripting\index.md: rence](/docs/en-us/luau.md).\n\n### Luau basics\n\nLuau is gradually 
+scripting\index.md: n\n	print(key, value)\nend\n```\n\n## Your first script\n\n1. In Roblox
+scripting\index.md: `text\nh\ne\nl (x2)\no\nworld\n```\n\n## Get comfortable\n\nA big part of 
+scripting\index.md: t Sync](/docs/en-us/sync.md).\n## Your second script\n\n1. In Roblo
+ui\index.md: me's 3D world](#in-game-ui).\n\n## On-screen UI\n\n[On-screen contai
+ui\index.md: jects/ScreenGui-Example.jpg)\n\n## In-game UI\n\n[In-game containers
+ui\index.md: within your game's 3D world.\n\n## UI objects\n\nMost UI elements ar
+ui\index.md: ide dynamic visual feedback.\n\n## Layout and design\n\nBeyond basic
+ui\index.md: ke` with `Class.UIGradient`_\n\n## Universal styling\n\n[Universal s
+ui\index.md: e end‑to‑end token pipeline.\n\n## Interactive frameworks\n\nIn addi
+ui\index.md: nteractivity for your games.\n\n### Proximity prompts\n\n[Proximity p
+ui\index.md: light switches, and buttons.\n\n### UI drag detectors\n\n[UI drag det
+unity\index.md: s between the two platforms.\n\n## Get oriented\n\n![The Unity user 
+unity\index.md: o the Unity **Asset Store**.\n\n## Philosophical differences\n\nRobl
+unity\index.md: ocs/en-us/physics/units.md).\n\n## Location matters\n\nRoblox games 
+unity\index.md: tting up player backpacks. |\n\n## Scripting\n\nRoblox games support
+unity\index.md: s and listening for updates.\n\n### C# and Luau\n\nFor scripting, Uni
+unity\index.md: /luau-csharp-comparison.md).\n\n### Luau code sample\n\nThe following
+unity\index.md: ion would be very different.\n\n## Assets\n\nUnity and Roblox both s
+unity\index.md: reamline the import process.\n\n## Transforms\n\nUnity's transforms 
+unity\index.md: ods for other manipulations.\n\n## Collaboration\n\nIn Unity, you co
+unity\index.md: e or set them to auto-update.\n## Plugins\n\nSimilar to Unity tools
+unity\index.md:  like assets, many for free.\n\n## Glossary\n\n| Unity | Roblox | No
+unreal\index.md: s between the two platforms.\n\n## Get oriented\n\n![The Unreal Edit
+unreal\index.md: m the Studio user interface.\n\n## Philosophical differences\n\nRobl
+unreal\index.md: ocs/en-us/physics/units.md).\n\n## Location matters\n\nRoblox games 
+unreal\index.md: tting up player backpacks. |\n\n## Scripting\n\nRoblox games support
+unreal\index.md: s and listening for updates.\n\n### C++ and Luau\n\nFor scripting, Un
+unreal\index.md:  comparable system built-in.\n\n### Luau code sample\n\nThe following
+unreal\index.md: ion would be very different.\n\n## Assets\n\nUnreal and Roblox both 
+unreal\index.md: ** feature of Blender Tools.\n\n## Transforms\n\nUnreal Engine's tra
+unreal\index.md: ods for other manipulations.\n\n## Collaboration\n\nIn Unreal, you c
+unreal\index.md: e or set them to auto-update.\n## Plugins\n\nSimilar to Unreal, Rob
+unreal\index.md:  like assets, many for free.\n\n## Glossary\n\n| Unreal | Roblox | N
+workspace\camera.md: c, and weapon scoping views.\n\n## Basic settings\n\nYou can configu
+workspace\camera.md: rterPlayer-Camera-Group.png)\n\n### Zoom distance\n\nTogether, `Class
+workspace\camera.md: meraMinZoomDistance = 50\n```\n\n### Camera mode\n\nThe `Class.Starter
+workspace\camera.md: ipped `Class.Tool\|Tools`. |\n\n### Occlusion mode\n\nThe `Class.Star
+workspace\camera.md: Invisicam** occlusion modes_\n\n### Movement mode\n\nThe `Class.Start
+workspace\camera.md: se looks around the world. |\n\n## Script the camera\n\nEach player 
+workspace\index.md:  another object's rendering.\n\n## Parts\n\n`Class.Part` objects rep
+workspace\index.md:  like bowls or hollow pipes.\n\n## Meshes\n\nA `Class.MeshPart` is a
+workspace\index.md: Mesh with SurfaceAppearance_\n\n## Terrain\n\nThe `Class.Terrain` ob
+workspace\index.md: modeling/terrain/Showcase.jpg) ## Models\n\nA `Class.Model` is a co
+workspace\index.md: ngs that comprise the model_\n\n## Workspace access in scripts\n\nWi

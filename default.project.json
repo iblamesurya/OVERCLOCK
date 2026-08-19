@@ -1,0 +1,53 @@
+{
+  "name": "OVERCLOCK",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$path": "src/server"
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "$properties": {
+        "CharacterWalkSpeed": 16,
+        "CameraMode": "Classic"
+      },
+      "StarterPlayerScripts": {
+        "$path": "src/client"
+      }
+    },
+    "ReplicatedStorage": {
+      "$path": "src/shared"
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "FallenPartsDestroyHeight": -500,
+        "Gravity": 196.2,
+        "StreamingEnabled": true,
+        "StreamingTargetRadius": 350,
+        "StreamingMinRadius": 100,
+        "StreamingPauseMode": "Default"
+      }
+    },
+    "StarterGui": {
+      "$className": "StarterGui",
+      "$properties": {
+        "ShowDevelopmentGui": false
+      }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "ClockTime": 14,
+        "Brightness": 2,
+        "EnvironmentDiffuseScale": 0.25,
+        "EnvironmentSpecularScale": 0.25,
+        "Ambient": [0.352941, 0.372549, 0.431373],
+        "OutdoorAmbient": [0.0784314, 0.0862745, 0.137255],
+        "FogEnd": 1200,
+        "FogColor": [0.0705882, 0.0784314, 0.117647],
+        "ExposureCompensation": 0.05
+      }
+    }
+  }
+}

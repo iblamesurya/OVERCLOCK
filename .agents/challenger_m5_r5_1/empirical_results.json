@@ -1,0 +1,607 @@
+{
+  "file_count": 85,
+  "file_list": [
+    "src\\client\\ClientMain.client.luau",
+    "src\\client\\Controllers\\AnimationController.luau",
+    "src\\client\\Controllers\\CrosshairController.luau",
+    "src\\client\\Controllers\\LobbyTransitionController.luau",
+    "src\\client\\Controllers\\MobileControlsController.luau",
+    "src\\client\\Controllers\\OperativeController.luau",
+    "src\\client\\Controllers\\WeaponController.luau",
+    "src\\client\\UI\\AgentSelectUI.luau",
+    "src\\client\\UI\\BuyMenuController.luau",
+    "src\\client\\UI\\ChallengeInviteModal.luau",
+    "src\\client\\UI\\HUDController.luau",
+    "src\\client\\UI\\LoadoutInspectorUI.luau",
+    "src\\client\\UI\\LobbyUIController.luau",
+    "src\\client\\UI\\MatchmakingQueueUI.luau",
+    "src\\client\\UI\\PlayerListChallengeUI.luau",
+    "src\\client\\UI\\PostMatchSummaryUI.luau",
+    "src\\client\\UI\\PracticeRangeHUD.luau",
+    "src\\client\\UI\\SettingsUIController.luau",
+    "src\\client\\UI\\ShopUIController.luau",
+    "src\\client\\UI\\UITheme.luau",
+    "src\\server\\ServerMain.server.luau",
+    "src\\server\\Combat\\CombatServer.luau",
+    "src\\server\\Combat\\HitValidation.luau",
+    "src\\server\\Combat\\M2_TestRunner.luau",
+    "src\\server\\Combat\\RollbackBuffer.luau",
+    "src\\server\\Diagnostics\\SmokeTest.server.luau",
+    "src\\server\\Services\\BootstrapService.luau",
+    "src\\server\\Services\\BotService.luau",
+    "src\\server\\Services\\BotService.spec.luau",
+    "src\\server\\Services\\CombatService.luau",
+    "src\\server\\Services\\DirectChallengeService.luau",
+    "src\\server\\Services\\DirectChallengeService.spec.luau",
+    "src\\server\\Services\\EconomyService.luau",
+    "src\\server\\Services\\EconomyService.spec.luau",
+    "src\\server\\Services\\FTUEAnalytics.luau",
+    "src\\server\\Services\\FTUEAnalytics.spec.luau",
+    "src\\server\\Services\\MatchmakingCoordinator.luau",
+    "src\\server\\Services\\MatchmakingCoordinator.spec.luau",
+    "src\\server\\Services\\MatchService.luau",
+    "src\\server\\Services\\OperativeService.luau",
+    "src\\server\\Services\\ProfileService.luau",
+    "src\\server\\Services\\ProfileServiceWrapper.luau",
+    "src\\server\\Services\\ProfileServiceWrapper.spec.luau",
+    "src\\server\\Services\\QueueMatchmakingService.luau",
+    "src\\server\\Services\\QueueService.luau",
+    "src\\server\\Services\\ReceiptProcessor.luau",
+    "src\\server\\Services\\ReceiptProcessor.spec.luau",
+    "src\\server\\Services\\RoundService.luau",
+    "src\\server\\Services\\RoundService.spec.luau",
+    "src\\server\\Services\\SocialInviteService.luau",
+    "src\\server\\Services\\SocialInviteService.spec.luau",
+    "src\\server\\Services\\SpawnService.luau",
+    "src\\server\\Tests\\M1_DamageTest.luau",
+    "src\\server\\Tests\\M3_OperativeTest.luau",
+    "src\\server\\Tests\\M4_NetworkSecurityTest.luau",
+    "src\\server\\Tests\\OverclockVerificationSuite.luau",
+    "src\\shared\\Constants.luau",
+    "src\\shared\\Analytics\\AnalyticsWrapper.luau",
+    "src\\shared\\Analytics\\AnalyticsWrapper.spec.luau",
+    "src\\shared\\Data\\Constants.luau",
+    "src\\shared\\Data\\OperativeStats.luau",
+    "src\\shared\\Data\\WeaponStats.luau",
+    "src\\shared\\Map\\ClassicGreyboxMap.luau",
+    "src\\shared\\Map\\CyberArenaMap.luau",
+    "src\\shared\\Map\\DesertRuinsMap.luau",
+    "src\\shared\\Map\\DuelArenaMap.luau",
+    "src\\shared\\Map\\DuelArenaMap.spec.luau",
+    "src\\shared\\Map\\ForestOutpostMap.luau",
+    "src\\shared\\Map\\GreyboxArenaMap.luau",
+    "src\\shared\\Map\\GreyboxArenaMap.spec.luau",
+    "src\\shared\\Map\\LobbyFolder.luau",
+    "src\\shared\\Map\\LobbyFolder.spec.luau",
+    "src\\shared\\Map\\MapRegistry.luau",
+    "src\\shared\\Map\\MapRegistry.spec.luau",
+    "src\\shared\\Map\\MapSafety.luau",
+    "src\\shared\\Map\\PracticeRangeMapLayout.luau",
+    "src\\shared\\Map\\PracticeRangeMapLayout.spec.luau",
+    "src\\shared\\Map\\UrbanWarehouseMap.luau",
+    "src\\shared\\Network\\BufferSerializer.luau",
+    "src\\shared\\Network\\ChallengeEvents.luau",
+    "src\\shared\\Network\\QueueEvents.luau",
+    "src\\shared\\Network\\RemoteEvents.luau",
+    "src\\shared\\Physics\\Spring.luau",
+    "src\\shared\\Types\\init.luau",
+    "src\\shared\\Utils\\ObjectPool.luau"
+  ],
+  "syntax_errors": [
+    [
+      "src\\client\\ClientMain.client.luau",
+      [
+        "Keyword balance mismatch: 'end' count=64, expected (fn+do+then)=85 (fn=37, do=1, then=47)"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\AnimationController.luau",
+      [
+        "Unbalanced brackets: delta = -16",
+        "Keyword balance mismatch: 'end' count=16, expected (fn+do+then)=22 (fn=11, do=0, then=11)"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\CrosshairController.luau",
+      [
+        "Unbalanced brackets: delta = -6",
+        "Keyword balance mismatch: 'end' count=27, expected (fn+do+then)=29 (fn=7, do=2, then=20)"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\LobbyTransitionController.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\MobileControlsController.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\OperativeController.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=61, expected (fn+do+then)=68 (fn=21, do=0, then=47)"
+      ]
+    ],
+    [
+      "src\\client\\Controllers\\WeaponController.luau",
+      [
+        "Unbalanced brackets: delta = -14",
+        "Keyword balance mismatch: 'end' count=61, expected (fn+do+then)=69 (fn=24, do=1, then=44)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\AgentSelectUI.luau",
+      [
+        "Keyword balance mismatch: 'end' count=34, expected (fn+do+then)=36 (fn=11, do=4, then=21)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\BuyMenuController.luau",
+      [
+        "Keyword balance mismatch: 'end' count=23, expected (fn+do+then)=26 (fn=10, do=1, then=15)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\ChallengeInviteModal.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\client\\UI\\HUDController.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=79, expected (fn+do+then)=88 (fn=36, do=4, then=48)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\LoadoutInspectorUI.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=43, expected (fn+do+then)=52 (fn=21, do=2, then=29)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\LobbyUIController.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=88, expected (fn+do+then)=90 (fn=42, do=7, then=41)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\MatchmakingQueueUI.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\client\\UI\\PlayerListChallengeUI.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=23, expected (fn+do+then)=25 (fn=13, do=2, then=10)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\PostMatchSummaryUI.luau",
+      [
+        "Keyword balance mismatch: 'end' count=18, expected (fn+do+then)=25 (fn=8, do=4, then=13)"
+      ]
+    ],
+    [
+      "src\\client\\UI\\SettingsUIController.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\client\\UI\\ShopUIController.luau",
+      [
+        "Keyword balance mismatch: 'end' count=16, expected (fn+do+then)=21 (fn=9, do=3, then=9)"
+      ]
+    ],
+    [
+      "src\\server\\Combat\\CombatServer.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=78, expected (fn+do+then)=80 (fn=19, do=1, then=60)"
+      ]
+    ],
+    [
+      "src\\server\\Combat\\HitValidation.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=19, expected (fn+do+then)=23 (fn=2, do=1, then=20)"
+      ]
+    ],
+    [
+      "src\\server\\Combat\\M2_TestRunner.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Combat\\RollbackBuffer.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=19, expected (fn+do+then)=21 (fn=7, do=2, then=12)"
+      ]
+    ],
+    [
+      "src\\server\\Diagnostics\\SmokeTest.server.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\BootstrapService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\BotService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=76, expected (fn+do+then)=80 (fn=27, do=10, then=43)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\BotService.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\CombatService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\DirectChallengeService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=67, expected (fn+do+then)=69 (fn=21, do=0, then=48)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\DirectChallengeService.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\EconomyService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=48, expected (fn+do+then)=50 (fn=18, do=3, then=29)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\EconomyService.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\FTUEAnalytics.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\FTUEAnalytics.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\MatchmakingCoordinator.luau",
+      [
+        "Unbalanced brackets: delta = -18",
+        "Keyword balance mismatch: 'end' count=65, expected (fn+do+then)=66 (fn=31, do=12, then=23)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\MatchService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\OperativeService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=151, expected (fn+do+then)=186 (fn=36, do=15, then=135)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\ProfileService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\ProfileServiceWrapper.luau",
+      [
+        "Unbalanced brackets: delta = -8",
+        "Keyword balance mismatch: 'end' count=73, expected (fn+do+then)=79 (fn=33, do=6, then=40)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\ProfileServiceWrapper.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\QueueMatchmakingService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=102, expected (fn+do+then)=103 (fn=21, do=24, then=58)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\QueueService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\ReceiptProcessor.luau",
+      [
+        "Unbalanced brackets: delta = -12"
+      ]
+    ],
+    [
+      "src\\server\\Services\\RoundService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=97, expected (fn+do+then)=99 (fn=22, do=20, then=57)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\RoundService.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=2, expected (fn+do+then)=1 (fn=1, do=0, then=0)"
+      ]
+    ],
+    [
+      "src\\server\\Services\\SocialInviteService.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\SocialInviteService.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Services\\SpawnService.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=61, expected (fn+do+then)=63 (fn=26, do=2, then=35)"
+      ]
+    ],
+    [
+      "src\\server\\Tests\\M1_DamageTest.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Tests\\M3_OperativeTest.luau",
+      [
+        "Unbalanced parentheses: delta = 3",
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Tests\\M4_NetworkSecurityTest.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\server\\Tests\\OverclockVerificationSuite.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Constants.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Analytics\\AnalyticsWrapper.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Analytics\\AnalyticsWrapper.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Data\\Constants.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Data\\OperativeStats.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Data\\WeaponStats.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\ClassicGreyboxMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=17, expected (fn+do+then)=20 (fn=11, do=3, then=6)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\CyberArenaMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=19, expected (fn+do+then)=21 (fn=12, do=4, then=5)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\DesertRuinsMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=21, expected (fn+do+then)=23 (fn=12, do=4, then=7)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\DuelArenaMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=16, expected (fn+do+then)=19 (fn=9, do=5, then=5)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\DuelArenaMap.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\ForestOutpostMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=21, expected (fn+do+then)=23 (fn=11, do=7, then=5)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\GreyboxArenaMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=16, expected (fn+do+then)=19 (fn=9, do=5, then=5)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\GreyboxArenaMap.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\LobbyFolder.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=24, expected (fn+do+then)=25 (fn=8, do=8, then=9)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\LobbyFolder.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\MapRegistry.luau",
+      [
+        "Unbalanced brackets: delta = -26",
+        "Keyword balance mismatch: 'end' count=33, expected (fn+do+then)=35 (fn=14, do=3, then=18)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\MapRegistry.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\MapSafety.luau",
+      [
+        "Unbalanced brackets: delta = -6",
+        "Keyword balance mismatch: 'end' count=9, expected (fn+do+then)=13 (fn=2, do=1, then=10)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\PracticeRangeMapLayout.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=24, expected (fn+do+then)=25 (fn=10, do=9, then=6)"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\PracticeRangeMapLayout.spec.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Map\\UrbanWarehouseMap.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=21, expected (fn+do+then)=23 (fn=12, do=6, then=5)"
+      ]
+    ],
+    [
+      "src\\shared\\Network\\BufferSerializer.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Network\\ChallengeEvents.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=17, expected (fn+do+then)=18 (fn=3, do=2, then=13)"
+      ]
+    ],
+    [
+      "src\\shared\\Network\\QueueEvents.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Physics\\Spring.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Types\\init.luau",
+      [
+        "Unbalanced brackets: delta = -2"
+      ]
+    ],
+    [
+      "src\\shared\\Utils\\ObjectPool.luau",
+      [
+        "Unbalanced brackets: delta = -2",
+        "Keyword balance mismatch: 'end' count=40, expected (fn+do+then)=44 (fn=17, do=4, then=23)"
+      ]
+    ]
+  ],
+  "contamination_errors": [],
+  "require_errors": [],
+  "agent_dir_violations": [],
+  "legacy_brand_warnings": [],
+  "rojo_build_passed": true,
+  "rojo_build_output": "Building project 'OVERCLOCK'\nBuilt project to RivalsParadigm.rbxl\n\n"
+}

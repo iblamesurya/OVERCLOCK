@@ -1,0 +1,137 @@
+{
+  "source_package": "Roblox_AI_Agent_Handoff_Package/roblox_agent_handoff",
+  "dossier": "ROBLOX_AI_AGENT_DOSSIER.md (2026-08-13, Manus AI)",
+  "contact_sheet": "artifacts/community_asset_contact_sheet.png",
+  "pipeline": "Search → inspect listing → permission check → Workspace.ScratchAssetAudit → tools/audit_asset.luau → reject/sanitize → ServerStorage.Templates.VettedProps → VettedPropSlots",
+  "assets": {
+    "LowPolyTree": {
+      "id": 10355960847,
+      "name": "Low Poly Tree",
+      "creator": "@Geremenek",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/10355960847/Low-Poly-Tree",
+      "role": "Decoration",
+      "risk": "Low",
+      "observed": "Created 2022-07-25, updated 2022-10-23",
+      "visual": "Single angular green canopy with thin forked trunk",
+      "postInsert": "Anchor; CanQuery=false unless blocking bullets",
+      "slot": "VettedPropSlots perimeter dressing"
+    },
+    "LowPolyTreePack": {
+      "id": 4870769649,
+      "name": "Low poly tree pack",
+      "creator": "@FloydVeith",
+      "kind": "Model",
+      "url": "https://create.roblox.com/store/asset/4870769649/Low-poly-tree-pack",
+      "role": "Decoration",
+      "risk": "Medium",
+      "observed": "804 triangles, 895 vertices, 10 MeshParts (2020-04-07)",
+      "visual": "Small low-poly tree collection",
+      "postInsert": "Audit every descendant; keep only approved anchored MeshParts",
+      "slot": "VettedPropSlots background dressing"
+    },
+    "LowPolyRocks": {
+      "id": 6562523344,
+      "name": "Low Poly Rocks Pack",
+      "creator": "@GYPLA6",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/6562523344/Low-Poly-Rocks-Pack",
+      "role": "Decoration",
+      "risk": "Low",
+      "observed": "Created 2021-03-24, updated 2024-03-02",
+      "visual": "Several pale angular low-poly rocks",
+      "postInsert": "Anchor; simple collision or CanQuery=false",
+      "slot": "Spawn outskirts / tree bases"
+    },
+    "WoodenBox02": {
+      "id": 430288318,
+      "name": "Meshes/WoodenBox02",
+      "creator": "@The_Sink",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/430288318/MeshesWoodenBox02",
+      "role": "HardCover",
+      "risk": "Low",
+      "observed": "Created/updated 2016-06-10",
+      "visual": "Open framed cargo crate with diagonal wood bracing",
+      "postInsert": "Pair with invisible rectangular BulletBlocker primitive",
+      "slot": "CoverBlocker pairing"
+    },
+    "LowPolyBarrel": {
+      "id": 4204999283,
+      "name": "Barrel",
+      "creator": "@Digitalscape",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/4204999283/Barrel",
+      "role": "HardCover",
+      "risk": "Low",
+      "observed": "Simple low poly barrel (2019-10-25, updated 2020-09-15)",
+      "visual": "Brown low-poly barrel with gray bands",
+      "postInsert": "Anchor; soft cover unless blocker explicitly placed",
+      "slot": "Groups beside crates"
+    },
+    "SciFiContainer": {
+      "id": 13679876057,
+      "name": "Sci-Fi container",
+      "creator": "@Jezza19870",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/13679876057/SciFi-container",
+      "role": "HardCover",
+      "risk": "Low",
+      "observed": "Created 2023-06-07, updated 2025-10-11 (free version)",
+      "visual": "Red industrial cargo container with warning striping",
+      "postInsert": "Anchor and pair with BulletBlocker; revalidate permission",
+      "slot": "Arena primary hard-cover landmark"
+    },
+    "EnergyRifleVisual": {
+      "id": 443695083,
+      "name": "Energy Rifle",
+      "creator": "@XenoSynthesis",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/443695083/Energy-Rifle",
+      "role": "WeaponVisual",
+      "risk": "Medium",
+      "observed": "Made with Studio CSG/Maya/Photoshop (2016-06-28, updated 2019-03-20)",
+      "visual": "Compact black sci-fi rifle with blue energy accents",
+      "postInsert": "Parent inside locally authored Tool only; add Handle, Muzzle, scripts locally",
+      "slot": "StarterPack Tool EnergyRifle Handle/Muzzle"
+    },
+    "TankBotVisual": {
+      "id": 7198227425,
+      "name": "tank bot",
+      "creator": "@fajnygosciu1234",
+      "kind": "MeshPart",
+      "url": "https://create.roblox.com/store/asset/7198227425/tank-bot",
+      "role": "EnemyVisual",
+      "risk": "High",
+      "observed": "2021 dates, incomplete labels — conservative record",
+      "visual": "Compact purple/black robot with twin barrels",
+      "postInsert": "Visual shell only; screen IP/rights, parent to local NPC with hitbox/AI",
+      "slot": "Server NPC shell only"
+    }
+  },
+  "weapon_configs": {
+    "EnergyRifle": {
+      "fireMode": "Hitscan",
+      "damage": 24,
+      "range": 650,
+      "fireRate": 7.5,
+      "magazineSize": 30,
+      "reloadSeconds": 2.2,
+      "spreadDegrees": 0.35
+    },
+    "ArcLauncher": {
+      "fireMode": "Projectile",
+      "damage": 75,
+      "range": 460,
+      "fireRate": 1.15,
+      "magazineSize": 1,
+      "reloadSeconds": 2.6,
+      "spreadDegrees": 0.5,
+      "projectileSpeed": 150,
+      "projectileGravityScale": 1.0,
+      "projectileLifetime": 4.0
+    }
+  },
+  "collision_groups": ["Characters", "Projectiles", "Map", "Decoration", "Triggers", "WeaponRay", "ProjectileRay"],
+  "tags": ["MapProp", "BulletBlocker", "SpawnPoint", "Damageable", "VettedAsset"]
+}

@@ -1,0 +1,14 @@
+# Binaries & Executables
+rojo.exe
+*.exe
+*.dll
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python Cache
+__pycache__/
+*.pyc
