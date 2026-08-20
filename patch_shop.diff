@@ -1,0 +1,83 @@
+<<<<<<< SEARCH
+local cardStrokes: {[string]: UIStroke} = {}
+local equipButtons: {[string]: TextButton} = {}
+
+local function requestSkin(skinId: string)
+=======
+local cardStrokes: {[string]: UIStroke} = {}
+local equipButtons: {[string]: TextButton} = {}
+
+local function requestSkin(skinId: string)
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+function ShopUIController.Init(playerGui: PlayerGui)
+	if screenGui then
+		ShopUIController.Destroy()
+	end
+=======
+function ShopUIController.Init(playerGui: PlayerGui)
+	if screenGui then
+		ShopUIController.Destroy()
+	end
+
+	pcall(function()
+		local skinRemote = RemoteEvents.GetReliable("WeaponSkinRequest") :: RemoteEvent
+		PremiumWeaponPresentation.BindSkinResults(skinRemote, function(weaponId, skinId)
+			equipped = skinId
+			-- Refresh the armory selection here only after server confirmation.
+			for id, s in cardStrokes do
+				s.Color = if id == skinId then UITheme.Colors.Accent else Color3.fromRGB(40, 45, 60)
+			end
+			for id, btn in equipButtons do
+				btn.Text = if id == skinId then "EQUIPPED" else "PURCHASE / EQUIP"
+				btn.BackgroundColor3 = if id == skinId then UITheme.Colors.Success else UITheme.Colors.Accent
+			end
+
+			local WeaponController = require(ControllersFolder:WaitForChild("WeaponController") :: any)
+			WeaponController.ApplySkin(skinId)
+		end)
+	end)
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+	local layout = Instance.new("UIListLayout")
+	layout.FillDirection = Enum.FillDirection.Horizontal
+	layout.Padding = UDim.new(0, 20)
+	layout.SortOrder = Enum.SortOrder.LayoutOrder
+	layout.Parent = scroll
+
+	local cardStrokes: {[string]: UIStroke} = {}
+	local equipButtons: {[string]: TextButton} = {}
+
+	for _, skinId in ipairs(PremiumWeaponCatalog.GetSkinOrder()) do
+=======
+	local layout = Instance.new("UIListLayout")
+	layout.FillDirection = Enum.FillDirection.Horizontal
+	layout.Padding = UDim.new(0, 20)
+	layout.SortOrder = Enum.SortOrder.LayoutOrder
+	layout.Parent = scroll
+
+	table.clear(cardStrokes)
+	table.clear(equipButtons)
+
+	for _, skinId in ipairs(PremiumWeaponCatalog.GetSkinOrder()) do
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+		equipBtn.MouseButton1Click:Connect(function()
+			requestSkin(skinId)
+			for id, s in cardStrokes do
+				s.Color = if id == skinId then UITheme.Colors.Accent else Color3.fromRGB(40, 45, 60)
+			end
+			for id, btn in equipButtons do
+				btn.Text = if id == skinId then "EQUIPPED" else "PURCHASE / EQUIP"
+				btn.BackgroundColor3 = if id == skinId then UITheme.Colors.Success else UITheme.Colors.Accent
+			end
+		end)
+	end
+end
+=======
+		equipBtn.MouseButton1Click:Connect(function()
+			requestSkin(skinId)
+		end)
+	end
+end
+>>>>>>> REPLACE

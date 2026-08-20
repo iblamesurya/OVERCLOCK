@@ -21,10 +21,12 @@ local currentWeaponForSkin: string = "AssaultRifle"
 local renderConnections: {RBXScriptConnection} = {}
 
 
+local cardStrokes: {[string]: UIStroke} = {}
+local equipButtons: {[string]: TextButton} = {}
+
 local function requestSkin(skinId: string)
 	local remote = RemoteEvents.GetReliable("WeaponSkinRequest")
 	PremiumWeaponPresentation.RequestSkin(remote, currentWeaponForSkin, skinId)
-	equipped = skinId
 end
 
 local function create3DPreview(weaponId: string, skinId: string): ViewportFrame
@@ -80,6 +82,24 @@ function ShopUIController.Init(playerGui: PlayerGui)
 	if screenGui then
 		ShopUIController.Destroy()
 	end
+
+	pcall(function()
+		local skinRemote = RemoteEvents.GetReliable("WeaponSkinRequest") :: RemoteEvent
+		PremiumWeaponPresentation.BindSkinResults(skinRemote, function(weaponId, skinId)
+			equipped = skinId
+			-- Refresh the armory selection here only after server confirmation.
+			for id, s in cardStrokes do
+				s.Color = if id == skinId then UITheme.Colors.Accent else Color3.fromRGB(40, 45, 60)
+			end
+			for id, btn in equipButtons do
+				btn.Text = if id == skinId then "EQUIPPED" else "PURCHASE / EQUIP"
+				btn.BackgroundColor3 = if id == skinId then UITheme.Colors.Success else UITheme.Colors.Accent
+			end
+
+			local WeaponController = require(ControllersFolder:WaitForChild("WeaponController") :: any)
+			WeaponController.ApplySkin(skinId)
+		end)
+	end)
 	screenGui = Instance.new("ScreenGui")
 	screenGui.Name = "ShopGui"
 	screenGui.ResetOnSpawn = false
@@ -149,8 +169,8 @@ function ShopUIController.Init(playerGui: PlayerGui)
 	layout.SortOrder = Enum.SortOrder.LayoutOrder
 	layout.Parent = scroll
 
-	local cardStrokes: {[string]: UIStroke} = {}
-	local equipButtons: {[string]: TextButton} = {}
+	table.clear(cardStrokes)
+	table.clear(equipButtons)
 
 	for _, skinId in ipairs(PremiumWeaponCatalog.GetSkinOrder()) do
 		local skinSpec = PremiumWeaponCatalog.GetSkin(skinId)
@@ -214,13 +234,6 @@ function ShopUIController.Init(playerGui: PlayerGui)
 
 		equipBtn.MouseButton1Click:Connect(function()
 			requestSkin(skinId)
-			for id, s in cardStrokes do
-				s.Color = if id == skinId then UITheme.Colors.Accent else Color3.fromRGB(40, 45, 60)
-			end
-			for id, btn in equipButtons do
-				btn.Text = if id == skinId then "EQUIPPED" else "PURCHASE / EQUIP"
-				btn.BackgroundColor3 = if id == skinId then UITheme.Colors.Success else UITheme.Colors.Accent
-			end
 		end)
 	end
 end
