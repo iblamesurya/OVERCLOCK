@@ -28,7 +28,6 @@ local loadedTracks: { [string]: AnimationTrack } = {}
 
 -- Springs
 local recoilSpring = Spring.new(0.2, 90.0, 12.0)
-local cameraRollSpring = Spring.new(0.2, 90.0, 12.0)
 local swaySpring = Spring.new(0.2, 140.0, 14.0)
 local bobbingSpring = Spring.new(0.25, 120.0, 12.0)
 
@@ -127,10 +126,6 @@ function AnimationController.AddRecoil(impulse: Vector3): ()
     recoilSpring:Impulse(impulse)
 end
 
-function AnimationController.AddCameraRoll(roll: number): ()
-    cameraRollSpring:Impulse(Vector3.new(0, 0, roll))
-end
-
 --[=[
     Sets Aim-Down-Sights state and target FOV.
 ]=]
@@ -170,13 +165,12 @@ function AnimationController.Update(dt: number): ()
 
     -- 2. Walk Bobbing Update
     if state.isGrounded and state.walkSpeed > 1.0 then
-        local isSprinting = state.walkSpeed > 18.0
-        local bobFrequency = if isSprinting then 12 else 8
-        local bobAmplitudeX = if isSprinting then 0.02 else 0.012
-        local bobAmplitudeY = if isSprinting then 0.015 else 0.008
-        local bobTime = os.clock() * bobFrequency
-        local targetBobX = math.sin(bobTime) * bobAmplitudeX
-        local targetBobY = math.abs(math.cos(bobTime)) * bobAmplitudeY
+        local bobFrequency = if state.isAiming then 8.0 else 12.0
+        local bobIntensity = if state.isAiming then 0.05 else 0.15
+        bobPhase = (bobPhase + dt * bobFrequency * (state.walkSpeed / 16.0)) % (2 * math.pi)
+
+        local targetBobX = math.sin(bobPhase) * bobIntensity * 0.5
+        local targetBobY = math.abs(math.cos(bobPhase)) * bobIntensity
         bobbingSpring:SetTarget(Vector3.new(targetBobX, targetBobY, 0))
     else
         bobbingSpring:SetTarget(Vector3.zero)
@@ -184,7 +178,6 @@ function AnimationController.Update(dt: number): ()
 
     -- Update all springs
     recoilSpring:Update(dt)
-    cameraRollSpring:Update(dt)
     swaySpring:Update(dt)
     bobbingSpring:Update(dt)
 
@@ -209,9 +202,7 @@ function AnimationController.GetCameraOffset(): CFrame
     local recoilPos = recoilSpring.Position
     local bobPos = bobbingSpring.Position
 
-    local rollPos = cameraRollSpring.Position
-
-    return CFrame.Angles(recoilPos.X, recoilPos.Y, rollPos.Z)
+    return CFrame.Angles(recoilPos.X, recoilPos.Y, recoilPos.Z)
         * CFrame.new(bobPos.X * 0.3, bobPos.Y * 0.3, 0)
 end
 

@@ -559,8 +559,6 @@ local function FireShot(isAccumulated: boolean?): ()
 	local baseRecoil = if isAiming then activeStats.recoilImpulseADS else activeStats.recoilImpulse
 	local yawVariation = rng:NextNumber(-0.35, 0.35) * baseRecoil.Y
 	AnimationController.AddRecoil(Vector3.new(baseRecoil.X * 0.85, yawVariation, baseRecoil.Z * 0.85))
-	local rollAngle = baseRecoil.Z * (math.random() > 0.5 and 1 or -1)
-	AnimationController.AddCameraRoll(rollAngle)
 
 	RenderMuzzleFlash(CFrame.lookAt(muzzleOrigin, targetHitPos))
 	RenderTracer(muzzleOrigin, targetHitPos)

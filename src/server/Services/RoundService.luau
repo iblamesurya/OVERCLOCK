@@ -640,7 +640,6 @@ function RoundService.OnPlayerRemoving(player: Player)
 	if matchId then
 		playerMatchMap[player.UserId] = nil
 		local match = activeMatches[matchId]
-		if not match or match.isMatchOver then return end
 		if match then
 			local pData = match.playerLookup[player.UserId]
 			if pData and match.mode == "1v1" and not match.isMatchOver then

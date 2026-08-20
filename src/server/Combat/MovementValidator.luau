@@ -7,7 +7,6 @@
 ]=]
 
 local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
 
 local MovementValidator = {}
 
@@ -38,7 +37,7 @@ function MovementValidator.ValidateClientState(userId: number, timestamp: number
     if not state then
         -- First state received, initialize it based on server's truth
         playerStates[userId] = {
-            lastTimestamp = Workspace:GetServerTimeNow(),
+            lastTimestamp = timestamp,
             lastPosition = hrp.Position,
             lastVelocity = hrp.AssemblyLinearVelocity,
             violations = 0,
@@ -135,7 +134,7 @@ function MovementValidator.NotifyTeleport(player: Player)
         local root = character and character:FindFirstChild("HumanoidRootPart") :: BasePart?
         if root then
             playerStates[player.UserId] = {
-                lastTimestamp = Workspace:GetServerTimeNow(),
+                lastTimestamp = tick(),
                 lastPosition = root.Position,
                 lastVelocity = root.AssemblyLinearVelocity,
                 violations = 0,
@@ -143,7 +142,7 @@ function MovementValidator.NotifyTeleport(player: Player)
             }
         else
             playerStates[player.UserId] = {
-                lastTimestamp = Workspace:GetServerTimeNow(),
+                lastTimestamp = tick(),
                 lastPosition = Vector3.zero,
                 lastVelocity = Vector3.zero,
                 violations = 0,
@@ -155,7 +154,7 @@ end
 
 function MovementValidator.ForceTeleport(player: Player, destination: Vector3)
     playerStates[player.UserId] = {
-        lastTimestamp = Workspace:GetServerTimeNow(),
+        lastTimestamp = tick(),
         lastPosition = destination,
         lastVelocity = Vector3.zero,
         violations = 0,

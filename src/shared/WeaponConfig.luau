@@ -16,7 +16,7 @@ export type WeaponConfig = {
 
 local config: {[string]: WeaponConfig} = {
     EnergyRifle = {
-        fireMode = "Hitscan",
+        fireMode = "Projectile",
         damage = 24,
         range = 650,
         fireRate = 7.5,

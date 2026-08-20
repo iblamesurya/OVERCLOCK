@@ -114,20 +114,20 @@ type CoverDef = {
 local COVER_DEFS: { CoverDef } = {
 	-- Mid lane
 	{ name = "Pillar_Center", pos = Vector3.new(0, 6, 0), size = Vector3.new(7, 12, 7), tier = "Pillar", health = 9999 },
-	{ name = "LowCover_Mid_N", pos = Vector3.new(0, 1.5, -22), size = Vector3.new(8, 3, 3.5), tier = "Low", health = 120 },
-	{ name = "LowCover_Mid_S", pos = Vector3.new(0, 1.5, 22), size = Vector3.new(8, 3, 3.5), tier = "Low", health = 120 },
-	{ name = "MidCover_Mid_N", pos = Vector3.new(0, 2.5, -38), size = Vector3.new(5, 5, 4), tier = "Mid", health = 220 },
-	{ name = "MidCover_Mid_S", pos = Vector3.new(0, 2.5, 38), size = Vector3.new(5, 5, 4), tier = "Mid", health = 220 },
+	{ name = "LowCover_Mid_N", pos = Vector3.new(0, 1.75, -22), size = Vector3.new(8, 3.5, 3.5), tier = "Low", health = 120 },
+	{ name = "LowCover_Mid_S", pos = Vector3.new(0, 1.75, 22), size = Vector3.new(8, 3.5, 3.5), tier = "Low", health = 120 },
+	{ name = "MidCover_Mid_N", pos = Vector3.new(0, 1.75, -38), size = Vector3.new(5, 3.5, 4), tier = "Mid", health = 220 },
+	{ name = "MidCover_Mid_S", pos = Vector3.new(0, 1.75, 38), size = Vector3.new(5, 3.5, 4), tier = "Mid", health = 220 },
 
 	-- Left flank
 	{ name = "LowCover_Left_N", pos = Vector3.new(-40, 1.75, -28), size = Vector3.new(4, 3.5, 9), tier = "Low", health = 120 },
 	{ name = "LowCover_Left_S", pos = Vector3.new(-40, 1.75, 28), size = Vector3.new(4, 3.5, 9), tier = "Low", health = 120 },
-	{ name = "MidCover_Left_Mid", pos = Vector3.new(-38, 2.5, 0), size = Vector3.new(5, 5, 6), tier = "Mid", health = 220 },
+	{ name = "MidCover_Left_Mid", pos = Vector3.new(-38, 1.75, 0), size = Vector3.new(5, 3.5, 6), tier = "Mid", health = 220 },
 
 	-- Right flank
 	{ name = "LowCover_Right_N", pos = Vector3.new(40, 1.75, -28), size = Vector3.new(4, 3.5, 9), tier = "Low", health = 120 },
 	{ name = "LowCover_Right_S", pos = Vector3.new(40, 1.75, 28), size = Vector3.new(4, 3.5, 9), tier = "Low", health = 120 },
-	{ name = "MidCover_Right_Mid", pos = Vector3.new(38, 2.5, 0), size = Vector3.new(5, 5, 6), tier = "Mid", health = 220 },
+	{ name = "MidCover_Right_Mid", pos = Vector3.new(38, 1.75, 0), size = Vector3.new(5, 3.5, 6), tier = "Mid", health = 220 },
 
 	-- Connector choke blocks
 	{ name = "Choke_NW", pos = Vector3.new(-18, 1.75, -28), size = Vector3.new(4, 3.5, 4), tier = "Mid", health = 200 },

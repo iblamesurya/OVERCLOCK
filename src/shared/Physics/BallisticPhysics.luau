@@ -1,13 +1,7 @@
 --!strict
---[=[
-    Project OVERCLOCK: Ballistic Physics Engine
-    A highly optimized, custom projectile physics module utilizing swept raycasts 
-    (Continuous Collision Detection / CCD) to simulate bullet drop, travel time, 
-    and penetration without relying on Roblox's native physics engine.
-]=]
-
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
+local HttpService = game:GetService("HttpService")
 
 local BallisticPhysics = {}
 
@@ -24,6 +18,10 @@ export type ProjectileData = {
     maxRange: number,
     damage: number,
     isHeadshotCapable: boolean,
+    penetrationCount: number,
+    maxPenetrations: number,
+    bounces: number,
+    maxBounces: number,
     raycastParams: RaycastParams,
     startTime: number,
     onHitCallback: ((hitResult: RaycastResult, projectile: ProjectileData) -> ())?,
@@ -32,21 +30,15 @@ export type ProjectileData = {
 
 local activeProjectiles: { [string]: ProjectileData } = {}
 local GLOBAL_GRAVITY = Vector3.new(0, -Workspace.Gravity, 0)
-local HttpService = game:GetService("HttpService")
+local stepConnection: RBXScriptConnection? = nil
 
--- Steps a projectile forward by DeltaTime using kinematic equations:
--- pos = pos + vel * dt + 0.5 * a * dt^2
--- vel = vel + a * dt
 local function stepProjectile(proj: ProjectileData, dt: number)
     local oldPos = proj.position
-    
     local accel = proj.acceleration + (GLOBAL_GRAVITY * proj.gravityMultiplier)
     local stepDisplacement = (proj.velocity * dt) + (0.5 * accel * dt * dt)
     local newPos = oldPos + stepDisplacement
-    
     local stepVelocity = proj.velocity + (accel * dt)
     
-    -- Swept Raycast for Continuous Collision Detection (CCD)
     local dir = stepDisplacement
     local dist = dir.Magnitude
     
@@ -57,7 +49,31 @@ local function stepProjectile(proj: ProjectileData, dt: number)
             if proj.onHitCallback then
                 proj.onHitCallback(hitResult, proj)
             end
-            return true -- Projectile consumed
+
+            local normal = hitResult.Normal
+            local dot = -proj.velocity.Unit:Dot(normal)
+
+            -- Ricochet logic
+            if dot < 0.35 and proj.bounces < proj.maxBounces then
+                proj.bounces += 1
+                proj.velocity = proj.velocity - (2 * proj.velocity:Dot(normal) * normal)
+                proj.velocity = proj.velocity * 0.8
+                proj.position = hitResult.Position + normal * 0.1
+                return false
+            elseif proj.penetrationCount < proj.maxPenetrations then
+                proj.penetrationCount += 1
+                proj.velocity = proj.velocity * 0.6
+                proj.damage = proj.damage * 0.7
+                proj.position = hitResult.Position + dir.Unit * 0.1
+                local model = hitResult.Instance:FindFirstAncestorOfClass("Model")
+                local exclude = model or hitResult.Instance
+                local filter = proj.raycastParams.FilterDescendantsInstances
+                table.insert(filter, exclude)
+                proj.raycastParams.FilterDescendantsInstances = filter
+                return false
+            end
+
+            return true -- consumed
         end
     end
     
@@ -71,17 +87,12 @@ local function stepProjectile(proj: ProjectileData, dt: number)
         end
         return true -- Expired
     end
-    
     return false -- Still active
 end
 
--- Hook into physics step for Server, or RenderStepped for Client
-local stepConnection: RBXScriptConnection? = nil
-
 local function onStep(dt: number)
     for id, proj in pairs(activeProjectiles) do
-        local consumed = stepProjectile(proj, dt)
-        if consumed then
+        if stepProjectile(proj, dt) then
             activeProjectiles[id] = nil
         end
     end
@@ -89,7 +100,6 @@ end
 
 function BallisticPhysics.Initialize()
     if stepConnection then return end
-    
     if RunService:IsServer() then
         stepConnection = RunService.Heartbeat:Connect(onStep)
     else
@@ -106,31 +116,35 @@ function BallisticPhysics.FireProjectile(config: {
     gravityMult: number,
     maxRange: number,
     damage: number,
+    maxPenetrations: number?,
+    maxBounces: number?,
     raycastParams: RaycastParams,
     onHit: ((hitResult: RaycastResult, proj: ProjectileData) -> ())?,
     onExpire: ((proj: ProjectileData) -> ())?
 }): string
     local id = HttpService:GenerateGUID(false)
-    
     local proj: ProjectileData = {
         id = id,
         shooterId = config.shooterId,
         weaponId = config.weaponId,
         origin = config.origin,
         position = config.origin,
-        velocity = config.direction.Unit * config.velocityMod,
+        velocity = (config.direction.Magnitude > 0.001 and config.direction.Unit or Vector3.new(0, 0, -1)) * config.velocityMod,
         acceleration = Vector3.zero,
         gravityMultiplier = config.gravityMult,
         distanceTraveled = 0,
         maxRange = config.maxRange,
         damage = config.damage,
         isHeadshotCapable = true,
+        penetrationCount = 0,
+        maxPenetrations = config.maxPenetrations or 0,
+        bounces = 0,
+        maxBounces = config.maxBounces or 0,
         raycastParams = config.raycastParams,
         startTime = os.clock(),
         onHitCallback = config.onHit,
         onExpireCallback = config.onExpire,
     }
-    
     activeProjectiles[id] = proj
     return id
 end

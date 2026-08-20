@@ -178,12 +178,12 @@ function CommunityArenaMap.BuildMap(parent: Instance?): Folder
 	-- Hard cover blockers (gameplay) + community visuals (dressing)
 	-- Uses all 3 HardCover vetted assets: WoodenBox02, SciFiContainer, LowPolyBarrel
 	local hardCoverDefs = {
-		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, -30), size = Vector3.new(14, 10, 6), vis = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, -30), size = Vector3.new(14, 10, 6), vis = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, 30), size = Vector3.new(14, 10, 6), vis = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, 30), size = Vector3.new(14, 10, 6), vis = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(0, 3.5, -45), size = Vector3.new(16, 10, 6), vis = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(0, 3.5, 45), size = Vector3.new(16, 10, 6), vis = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, -30), size = Vector3.new(14, 7.0, 6), vis = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, -30), size = Vector3.new(14, 7.0, 6), vis = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, 30), size = Vector3.new(14, 7.0, 6), vis = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, 30), size = Vector3.new(14, 7.0, 6), vis = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(0, 3.5, -45), size = Vector3.new(16, 7.0, 6), vis = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(0, 3.5, 45), size = Vector3.new(16, 7.0, 6), vis = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
 	}
 	for i, def in hardCoverDefs do
 		local blocker = makeBlocker("CoverBlocker_" .. i, def.size, CFrame.new(def.pos), gen)

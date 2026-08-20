@@ -8,6 +8,8 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
+local BallisticPhysics = require(game:GetService("ReplicatedStorage").Physics.BallisticPhysics)
+BallisticPhysics.Initialize()
 
 local Types = require(ReplicatedStorage:WaitForChild("Types") :: any)
 

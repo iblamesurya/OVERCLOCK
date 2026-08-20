@@ -231,10 +231,6 @@ function HitValidation.ValidateHit(
             for _, p in ipairs(game:GetService("Players"):GetPlayers()) do
                 if p.Character then table.insert(chars, p.Character) end
             end
-            local projFolder = Workspace:FindFirstChild("Projectiles")
-            if projFolder then table.insert(chars, projFolder) end
-            local fxFolder = Workspace:FindFirstChild("Effects")
-            if fxFolder then table.insert(chars, fxFolder) end
             rayParams.FilterDescendantsInstances = chars
             rayParams.IgnoreWater = true
 

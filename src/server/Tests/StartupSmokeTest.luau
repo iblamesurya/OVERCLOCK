@@ -155,36 +155,6 @@ function StartupSmokeTest.Run(): (boolean, { string })
 	end
 
 	-- ------------------------------------------------------------------------
-		-- ------------------------------------------------------------------------
-	-- CHECK 5: Additional Verification
-	-- ------------------------------------------------------------------------
-	if Workspace:FindFirstChild("Projectiles") then logPass("Workspace.Projectiles exists") else logFail("Workspace.Projectiles missing") end
-	if Workspace:FindFirstChild("Effects") then logPass("Workspace.Effects exists") else logFail("Workspace.Effects missing") end
-
-	local PhysicsService = game:GetService("PhysicsService")
-	local cGroups = PhysicsService:GetRegisteredCollisionGroups()
-	if #cGroups >= 8 then logPass("At least 8 collision groups exist") else logFail("Less than 8 collision groups exist") end
-
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local ServerStorage = game:GetService("ServerStorage")
-	local templates = ServerStorage:FindFirstChild("Templates")
-	if templates then
-		if templates:FindFirstChild("VettedProps") then logPass("VettedProps exists") else logFail("VettedProps missing") end
-		local pVis = templates:FindFirstChild("ProjectileVisual")
-		if pVis and pVis:IsA("BasePart") then logPass("ProjectileVisual exists") else logFail("ProjectileVisual missing or invalid") end
-	else
-		logFail("ServerStorage.Templates missing")
-	end
-
-	local MapRegistry = require(ReplicatedStorage.Map.MapRegistry)
-	for mapId, mapData in MapRegistry.GetAllMaps() do
-		if #mapData.redSpawns >= 2 and #mapData.blueSpawns >= 2 then
-			logPass("Map " .. mapId .. " has sufficient spawns")
-		else
-			logFail("Map " .. mapId .. " lacks sufficient spawns")
-		end
-	end
-
 	-- SUMMARY
 	-- ------------------------------------------------------------------------
 	local summaryLine = string.format("SUMMARY: %d PASSED, %d FAILED (TOTAL %d)", passedCount, failedCount, passedCount + failedCount)

@@ -23,10 +23,9 @@ local SoundService = game:GetService("SoundService")
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Debris = game:GetService("Debris")
-local WeaponStats = require(game:GetService("ReplicatedStorage"):WaitForChild("Data"):WaitForChild("WeaponStats"))
 
 local LocalPlayer = Players.LocalPlayer
-local IS_MOBILE = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled and not UserInputService.MouseEnabled
+local IS_MOBILE = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
 
 -- 4 weapons matching WeaponStats (Pistol, AssaultRifle, SniperRifle, Shotgun) — keep HUD in sync with WeaponStats registry
 local HUD_WEAPONS = { "Pistol", "AssaultRifle", "SniperRifle", "Shotgun" }
@@ -65,7 +64,7 @@ export type ScoreboardData = {
 }
 
 local HUDController = {}
-
+HUDController.menuJanitors = {}
 
 -- ============================================================================
 -- THEME (matches Lobby hybrid)
@@ -188,6 +187,18 @@ local _modulesTried = false
 -- ============================================================================
 -- UTILS
 -- ============================================================================
+
+local function trackMenuConn(c: RBXScriptConnection, menuName: string): RBXScriptConnection
+	if not HUDController.menuJanitors[menuName] then HUDController.menuJanitors[menuName] = {} end
+	table.insert(HUDController.menuJanitors[menuName], c)
+	return c
+end
+
+local function trackMenuTween(t: Tween, menuName: string): Tween
+	if not HUDController.menuJanitors[menuName] then HUDController.menuJanitors[menuName] = {} end
+	table.insert(HUDController.menuJanitors[menuName], t)
+	return t
+end
 
 local function trackConn(c: RBXScriptConnection): RBXScriptConnection
 	table.insert(connections, c)
@@ -477,14 +488,6 @@ local function createMainHUD(gui: ScreenGui)
 	hpTrack.Parent = vitals
 	corner(hpTrack, 3)
 
-	local healthGhost = Instance.new("Frame")
-	healthGhost.Name = "HealthGhost"
-	healthGhost.Size = UDim2.fromScale(1, 1)
-	healthGhost.BackgroundColor3 = THEME.Colors.DangerDark
-	healthGhost.BorderSizePixel = 0
-	healthGhost.Parent = hpTrack
-	corner(healthGhost, 3)
-
 	healthFill = Instance.new("Frame")
 	healthFill.Name = "HealthFill"
 	healthFill.Size = UDim2.fromScale(1, 1)
@@ -505,14 +508,6 @@ local function createMainHUD(gui: ScreenGui)
 	shieldFill = Instance.new("Frame")
 	shieldFill.Name = "ShieldFill"
 	shieldFill.Size = UDim2.fromScale(0.5, 1)
-	local shieldGhost = Instance.new("Frame")
-	shieldGhost.Name = "ShieldGhost"
-	shieldGhost.Size = UDim2.fromScale(1, 1)
-	shieldGhost.BackgroundColor3 = THEME.Colors.Shield
-	shieldGhost.BorderSizePixel = 0
-	shieldGhost.Parent = shTrack
-	corner(shieldGhost, 2)
-
 	shieldFill.BackgroundColor3 = THEME.Colors.Shield
 	shieldFill.BorderSizePixel = 0
 	shieldFill.Parent = shTrack
@@ -603,7 +598,7 @@ local function createMainHUD(gui: ScreenGui)
 	-- ---- SCOREBOARD + TIMER ----
 	local sb = Instance.new("Frame")
 	sb.Name = "Scoreboard"
-	sb.Size = UDim2.new(if IS_MOBILE then 0.36 else 0.22, 0, 0, 56)
+	sb.Size = UDim2.new(0, if IS_MOBILE then 260 else 340, 0, 56)
 	sb.Position = UDim2.new(0.5, 0, 0.055, 0)
 	sb.AnchorPoint = Vector2.new(0.5, 0)
 	sb.BackgroundColor3 = THEME.Colors.Bg
@@ -800,91 +795,6 @@ local function createMainHUD(gui: ScreenGui)
 	spectateLabel.Visible = false
 	spectateLabel.Parent = root
 
-	local specBar = Instance.new("Frame")
-	specBar.Name = "SpectateBar"
-	specBar.Size = UDim2.new(0, 300, 0, 40)
-	specBar.Position = UDim2.new(0.5, 0, 0.92, 0)
-	specBar.AnchorPoint = Vector2.new(0.5, 0)
-	specBar.BackgroundColor3 = THEME.Colors.Panel
-	specBar.Visible = false
-	specBar.Parent = root
-	corner(specBar, 4)
-
-	local specLeft = Instance.new("TextButton")
-	specLeft.Name = "Left"
-	specLeft.Size = UDim2.new(0, 40, 1, 0)
-	specLeft.Position = UDim2.new(0, 0, 0, 0)
-	specLeft.BackgroundTransparency = 1
-	specLeft.Text = "<"
-	specLeft.TextColor3 = THEME.Colors.Text
-	specLeft.Font = THEME.Fonts.Heavy
-	specLeft.TextSize = 20
-	specLeft.Parent = specBar
-
-	local specRight = Instance.new("TextButton")
-	specRight.Name = "Right"
-	specRight.Size = UDim2.new(0, 40, 1, 0)
-	specRight.Position = UDim2.new(1, -40, 0, 0)
-	specRight.BackgroundTransparency = 1
-	specRight.Text = ">"
-	specRight.TextColor3 = THEME.Colors.Text
-	specRight.Font = THEME.Fonts.Heavy
-	specRight.TextSize = 20
-	specRight.Parent = specBar
-
-	local specTarget = Instance.new("TextLabel")
-	specTarget.Name = "Target"
-	specTarget.Size = UDim2.new(1, -80, 1, 0)
-	specTarget.Position = UDim2.new(0, 40, 0, 0)
-	specTarget.BackgroundTransparency = 1
-	specTarget.Text = "TARGET"
-	specTarget.TextColor3 = THEME.Colors.Text
-	specTarget.Font = THEME.Fonts.Med
-	specTarget.TextSize = 16
-	specTarget.Parent = specBar
-
-	local currentSpecIdx = 1
-	local function updateSpecTarget()
-		if currentHUDMode ~= "Spectate" then return end
-		local t = {}
-		for _, p in ipairs(Players:GetPlayers()) do
-			if p ~= localPlayer and p.Team == localPlayer.Team and p.Character and p.Character:FindFirstChild("Humanoid") and p.Character.Humanoid.Health > 0 then
-				table.insert(t, p)
-			end
-		end
-		if #t == 0 then return end
-		if currentSpecIdx > #t then currentSpecIdx = 1 end
-		if currentSpecIdx < 1 then currentSpecIdx = #t end
-
-		local target = t[currentSpecIdx]
-		specBar.Target.Text = string.upper(target.Name)
-		Workspace.CurrentCamera.CameraSubject = target.Character.Humanoid
-	end
-
-	trackConn(specBar.Left.MouseButton1Click:Connect(function()
-		currentSpecIdx = currentSpecIdx - 1
-		updateSpecTarget()
-	end))
-
-	trackConn(specBar.Right.MouseButton1Click:Connect(function()
-		currentSpecIdx = currentSpecIdx + 1
-		updateSpecTarget()
-	end))
-
-	trackConn(UserInputService.InputBegan:Connect(function(input, gpe)
-		if gpe or currentHUDMode ~= "Spectate" then return end
-		if input.KeyCode == Enum.KeyCode.Q or input.KeyCode == Enum.KeyCode.Left then
-			currentSpecIdx = currentSpecIdx - 1
-			updateSpecTarget()
-		elseif input.KeyCode == Enum.KeyCode.E or input.KeyCode == Enum.KeyCode.Right then
-			currentSpecIdx = currentSpecIdx + 1
-			updateSpecTarget()
-		end
-	end))
-
-	-- We'll want to bind to a loop or something to keep it updated when teammates die?
-	-- Or just handle it when cycling. It's fine for now.
-
 	-- ---- KILLFEED (top-right) ----
 	killfeedList = Instance.new("Frame")
 	killfeedList.Name = "Killfeed"
@@ -986,7 +896,7 @@ local function createMenuUI(gui: ScreenGui)
 		b.AutoButtonColor = false
 		b.Parent = body
 		corner(b, 8)
-		trackConn(b.MouseButton1Click:Connect(fn))
+		trackMenuConn(b.MouseButton1Click:Connect(fn), "PauseMenu")
 	end
 	local list = Instance.new("UIListLayout")
 	list.Padding = UDim.new(0, 10)
@@ -1175,10 +1085,6 @@ local function createDynamicUI(gui: ScreenGui)
 		wedge.Image = "rbxassetid://867619898" -- chevron; swap for your triangle
 		wedge.ImageColor3 = THEME.Colors.Red
 		wedge.Parent = f
-		local aspect = Instance.new("UIAspectRatioConstraint")
-		aspect.AspectRatio = 1
-		aspect.DominantAxis = Enum.DominantAxis.Height
-		aspect.Parent = f
 		return f
 	end
 
@@ -1360,11 +1266,6 @@ function HUDController.SetHUDMode(mode: HUDMode)
 
 	resolveModules()
 
-
-	if mainHUD and mainHUD:FindFirstChild("Root") then
-		local specBar = mainHUD.Root:FindFirstChild("SpectateBar")
-		if specBar then specBar.Visible = false end
-	end
 	if mode == "Lobby" then
 		if mainHUD then
 			mainHUD.Enabled = false
@@ -1415,12 +1316,8 @@ function HUDController.SetHUDMode(mode: HUDMode)
 			menuUI.Enabled = true
 		end
 		if spectateLabel then
-			spectateLabel.Visible = false
-		end
-		local specBar = mainHUD and mainHUD:FindFirstChild("Root") and mainHUD.Root:FindFirstChild("SpectateBar")
-		if specBar then
-			specBar.Visible = true
-			-- The update logic is handled centrally now via trackConn bindings initialized on HUD creation.
+			spectateLabel.Visible = true
+			spectateLabel.Text = "SPECTATING  ·  [Q]/E] next"
 		end
 		if _crosshair and _crosshair.SetVisible then
 			pcall(_crosshair.SetVisible, false)
@@ -1447,30 +1344,10 @@ function HUDController.UpdateHealth(currentHealth: number, maxHealth: number, sh
 	local ratio = math.clamp(currentHealth / maxH, 0, 1)
 	local col = hpColor(ratio)
 
-	local hpTrack = healthFill.Parent
-	local healthGhost = hpTrack and hpTrack:FindFirstChild("HealthGhost")
-	local oldRatio = if healthGhost then healthGhost.Size.X.Scale else healthFill.Size.X.Scale
-	if not HUDController._hpOldRatio or HUDController._hpOldRatio < oldRatio then
-		HUDController._hpOldRatio = oldRatio
-	end
-	oldRatio = HUDController._hpOldRatio
-
 	trackTween(TweenService:Create(healthFill, THEME.Tween.Bar, {
 		Size = UDim2.new(ratio, 0, 1, 0),
 		BackgroundColor3 = col,
 	})):Play()
-	if healthGhost and ratio < oldRatio then
-		healthGhost.Size = UDim2.new(oldRatio, 0, 1, 0)
-		task.delay(0.4, function()
-			trackTween(TweenService:Create(healthGhost, TweenInfo.new(0.6, Enum.EasingStyle.Quad), {
-				Size = UDim2.new(ratio, 0, 1, 0),
-			})):Play()
-			HUDController._hpOldRatio = ratio
-		end)
-	elseif healthGhost then
-		healthGhost.Size = UDim2.new(ratio, 0, 1, 0)
-		HUDController._hpOldRatio = ratio
-	end
 
 	healthText.Text = tostring(math.ceil(currentHealth))
 	healthText.TextColor3 = if ratio < 0.3 then THEME.Colors.HpLow else THEME.Colors.Text
@@ -1479,31 +1356,9 @@ function HUDController.UpdateHealth(currentHealth: number, maxHealth: number, sh
 	local maxS = maxShield or 50
 	local sRatio = math.clamp(sh / math.max(maxS, 1), 0, 1)
 	if shieldFill then
-		local shTrack = shieldFill.Parent
-		local shieldGhost = shTrack and shTrack:FindFirstChild("ShieldGhost")
-		local oldSRatio = if shieldGhost then shieldGhost.Size.X.Scale else shieldFill.Size.X.Scale
-
-		if not HUDController._shOldRatio or HUDController._shOldRatio < oldSRatio then
-			HUDController._shOldRatio = oldSRatio
-		end
-		oldSRatio = HUDController._shOldRatio
-
 		trackTween(TweenService:Create(shieldFill, THEME.Tween.Bar, {
 			Size = UDim2.new(sRatio, 0, 1, 0),
 		})):Play()
-
-		if shieldGhost and sRatio < oldSRatio then
-			shieldGhost.Size = UDim2.new(oldSRatio, 0, 1, 0)
-			task.delay(0.4, function()
-				trackTween(TweenService:Create(shieldGhost, TweenInfo.new(0.6, Enum.EasingStyle.Quad), {
-					Size = UDim2.new(sRatio, 0, 1, 0),
-				})):Play()
-				HUDController._shOldRatio = sRatio
-			end)
-		elseif shieldGhost then
-			shieldGhost.Size = UDim2.new(sRatio, 0, 1, 0)
-			HUDController._shOldRatio = sRatio
-		end
 	end
 	if shieldText then
 		shieldText.Text = tostring(math.ceil(sh))
@@ -1537,33 +1392,17 @@ function HUDController.UpdateAmmo(currentAmmo: number, reserveAmmo: number, weap
 		weaponName.Text = string.upper(weaponNameStr)
 	end
 
-	local capacity = 30
-	if weaponNameStr then
-		local ws = WeaponStats.Get(weaponNameStr)
-		if ws and ws.magazineCapacity then
-			capacity = ws.magazineCapacity
-		end
-	end
-
-	local ratio = mag / math.max(capacity, 1)
-	local isLow = ratio < 0.3
-
+	local low = mag <= 5 and mag > 0
+	local empty = mag <= 0
 	if ammoMag then
-		if isLow then
-			local t = TweenService:Create(ammoMag, TweenInfo.new(0.3), {TextColor3 = THEME.Colors.Warning})
-			t:Play()
-		else
-			local t = TweenService:Create(ammoMag, TweenInfo.new(0.3), {TextColor3 = THEME.Colors.Text})
-			t:Play()
-		end
+		ammoMag.TextColor3 = if empty then THEME.Colors.HpLow elseif low then THEME.Colors.AccentGold else THEME.Colors.Text
 	end
 
-	if isLow then
+	if low or empty then
 		if not lowAmmoPulse and ammoContainer then
-			lowAmmoPulse = TweenService:Create(ammoContainer, TweenInfo.new(0.8, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
-				BackgroundTransparency = 0.4,
+			lowAmmoPulse = TweenService:Create(ammoContainer, THEME.Tween.Pulse, {
+				BackgroundTransparency = 0.05,
 			})
-			ammoContainer.BackgroundTransparency = 0.8
 			lowAmmoPulse:Play()
 		end
 	else
@@ -1572,7 +1411,7 @@ function HUDController.UpdateAmmo(currentAmmo: number, reserveAmmo: number, weap
 			lowAmmoPulse = nil
 		end
 		if ammoContainer then
-			ammoContainer.BackgroundTransparency = 0.55
+			ammoContainer.BackgroundTransparency = 0.2
 		end
 	end
 end
@@ -1999,8 +1838,15 @@ function HUDController.ToggleMenu(menuName: string, duration: number?)
 	end
 
 	if activeMenuName == menuName then
+		if HUDController.menuJanitors[menuName] then
+			for _, item in ipairs(HUDController.menuJanitors[menuName]) do
+				if typeof(item) == "Instance" and item:IsA("Tween") then item:Cancel()
+				elseif typeof(item) == "RBXScriptConnection" then item:Disconnect() end
+			end
+			table.clear(HUDController.menuJanitors[menuName])
+		end
 		local tw = TweenService:Create(menuRoot, THEME.Tween.Med, { GroupTransparency = 1 })
-		trackTween(tw)
+		trackMenuTween(tw, menuName)
 		tw:Play()
 		tw.Completed:Once(function()
 			if menuRoot then

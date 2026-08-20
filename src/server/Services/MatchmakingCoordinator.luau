@@ -350,13 +350,24 @@ function MatchmakingCoordinator.ProcessLobbyAsync(lobby: MatchLobby): boolean
 
 	-- 3. Teleport local players if present on this server instance
 	if #matchedPlayers > 0 then
-		local teleportSuccess, teleportErr = pcall(function()
-			TeleportService:TeleportToPrivateServer(TARGET_PLACE_ID, accessCode, matchedPlayers)
-		end)
+		local function tryTeleport()
+			local teleportSuccess, teleportErr = pcall(function()
+				local options = Instance.new("TeleportOptions")
+				options.ReservedServerAccessCode = accessCode
+				TeleportService:TeleportAsync(TARGET_PLACE_ID, matchedPlayers, options)
+			end)
+			return teleportSuccess, teleportErr
+		end
 
-		if not teleportSuccess then
-			warn("[MatchmakingCoordinator] Teleport failed for lobby " .. lobby.matchId .. ": " .. tostring(teleportErr))
-			return false
+		local success, err = tryTeleport()
+		if not success then
+			warn("[MatchmakingCoordinator] Teleport failed for lobby " .. lobby.matchId .. ": " .. tostring(err) .. ". Retrying in 2 seconds...")
+			task.wait(2)
+			success, err = tryTeleport()
+			if not success then
+				warn("[MatchmakingCoordinator] Teleport retry failed for lobby " .. lobby.matchId .. ": " .. tostring(err))
+				return false
+			end
 		end
 	end
 
@@ -388,9 +399,18 @@ function MatchmakingCoordinator.StartService(): ()
 			end
 			
 			if #localPlayers > 0 then
-				pcall(function()
-					TeleportService:TeleportToPrivateServer(TARGET_PLACE_ID, accessCode, localPlayers)
-				end)
+				local function tryLocalTeleport()
+					return pcall(function()
+						local options = Instance.new("TeleportOptions")
+						options.ReservedServerAccessCode = accessCode
+						TeleportService:TeleportAsync(TARGET_PLACE_ID, localPlayers, options)
+					end)
+				end
+				local success, err = tryLocalTeleport()
+				if not success then
+					task.wait(2)
+					tryLocalTeleport()
+				end
 			end
 		end)
 	end)
@@ -522,5 +542,16 @@ end
 function MatchmakingCoordinator.GetHiddenMMRDecayPerDay(): number
 	return HIDDEN_MMR_DECAY_PER_DAY
 end
+
+
+TeleportService.TeleportInitFailed:Connect(function(player, teleportResult, errorMessage, targetPlaceId, teleportOptions)
+	warn(string.format("[MatchmakingCoordinator] TeleportInitFailed for %s: %s", player.Name, tostring(errorMessage)))
+	task.spawn(function()
+		task.wait(3)
+		pcall(function()
+			TeleportService:TeleportAsync(targetPlaceId, {player}, teleportOptions)
+		end)
+	end)
+end)
 
 return MatchmakingCoordinator

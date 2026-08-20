@@ -1088,34 +1088,6 @@ function PracticeRangeMapLayout.BuildMap(parent: Instance?): Folder
 	pe.Parent = emitterPart
 
 	------------------------------------------------------------------------
-	-- Phase 3 Training Features
-	------------------------------------------------------------------------
-	local envFolder = mapFolder:FindFirstChild("Environment") or mapFolder
-	local CollectionService = game:GetService("CollectionService")
-
-	local recoilWall = createPart("RecoilWall", Vector3.new(40, 20, 1), CFrame.new(MAP_OFFSET + Vector3.new(530, 107, 120)), Color3.fromRGB(240, 240, 240), Enum.Material.SmoothPlastic, envFolder, true)
-	CollectionService:AddTag(recoilWall, "RecoilWall")
-	for dx = -18, 18, 2 do
-		for dy = -8, 8, 2 do
-			local dot = createPart("RecoilDot_"..dx.."_"..dy, Vector3.new(0.5, 0.5, 1.1), CFrame.new(MAP_OFFSET + Vector3.new(530 + dx, 107 + dy, 120)), Color3.fromRGB(255, 0, 0), Enum.Material.Neon, envFolder, false)
-			dot.CanCollide = false
-		end
-	end
-
-	local rail = createPart("TargetRail", Vector3.new(80, 0.5, 2), CFrame.new(MAP_OFFSET + Vector3.new(550, 107, 60)), Color3.fromRGB(50, 50, 50), Enum.Material.Metal, envFolder, false)
-	local dummy = createPart("MovingDummy", Vector3.new(2, 6, 2), CFrame.new(MAP_OFFSET + Vector3.new(550, 110.25, 60)), Color3.fromRGB(255, 100, 100), Enum.Material.SmoothPlastic, envFolder, true)
-	dummy:SetAttribute("StrafeSpeed", 16)
-	CollectionService:AddTag(dummy, "MovingTarget")
-
-	for i = 1, 5 do
-		local xOff = -30 + (i * 10)
-		local cover = createPart("ReflexCover_"..i, Vector3.new(6, 4, 2), CFrame.new(MAP_OFFSET + Vector3.new(560, 105, xOff)), Color3.fromRGB(100, 100, 100), Enum.Material.Concrete, envFolder, true)
-		local target = createPart("ReflexTarget_"..i, Vector3.new(2, 2, 0.5), CFrame.new(MAP_OFFSET + Vector3.new(561, 105, xOff)), Color3.fromRGB(255, 50, 50), Enum.Material.Neon, envFolder, true)
-		target:SetAttribute("PopUpInterval", 2 + (math.random() * 3))
-		CollectionService:AddTag(target, "ReflexTarget")
-	end
-
-	------------------------------------------------------------------------
 	-- Finalize
 	------------------------------------------------------------------------
 	mapFolder.Parent = targetParent

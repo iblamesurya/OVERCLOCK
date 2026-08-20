@@ -201,13 +201,13 @@ function CityArenaMap.BuildMap(parent: Instance?): Folder
 	-- 8 invisible hard-cover blockers + vetted dressing (industrial city containers/barrels)
 	local hardCoverDefs = {
 		{ pos = MAP_OFFSET + Vector3.new(-50, 3.5, -40), size = Vector3.new(14, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-62, 1.75, -30), size = Vector3.new(6, 5.0, 6), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(-38, 1.75, -50), size = Vector3.new(6, 5.0, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-62, 1.75, -30), size = Vector3.new(6, 3.5, 6), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(-38, 1.75, -50), size = Vector3.new(6, 3.5, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
 		{ pos = MAP_OFFSET + Vector3.new(50, 3.5, 40), size = Vector3.new(14, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(62, 1.75, 30), size = Vector3.new(6, 5.0, 6), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(38, 1.75, 50), size = Vector3.new(6, 5.0, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(62, 1.75, 30), size = Vector3.new(6, 3.5, 6), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(38, 1.75, 50), size = Vector3.new(6, 3.5, 6), key = "LowPolyBarrel", offset = Vector3.new(0, 0, 0) },
 		{ pos = MAP_OFFSET + Vector3.new(-18, 3.5, 0), size = Vector3.new(8, 7.0, 8), key = "SciFiContainer", offset = Vector3.new(0, 2, 0) },
-		{ pos = MAP_OFFSET + Vector3.new(18, 3.5, 0), size = Vector3.new(8, 7.0, 8), key = "WoodenBox02", offset = Vector3.new(0, 0, 0) },
+		{ pos = MAP_OFFSET + Vector3.new(18, 3.5, 0), size = Vector3.new(8, 7.0, 8), key = "WoodenBox02", offset = Vector3.new(0, 1, 0) },
 	}
 	for i, def in hardCoverDefs do
 		local blocker = makeInvisibleBlocker("CoverBlocker_" .. i, def.size, CFrame.new(def.pos), gen)
